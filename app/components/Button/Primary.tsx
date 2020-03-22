@@ -1,14 +1,21 @@
 import palette from '../../lib/palette';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  StyleProp,
+} from 'react-native';
 
 interface IProps {
   label: string;
   onPress: React.EventHandler<any>;
+  wrapperStyle?: StyleProp<any>;
 }
 
-const Primary = ({ onPress, label }: IProps) => (
-  <View>
+const Primary = ({ onPress, label, wrapperStyle }: IProps) => (
+  <View style={wrapperStyle}>
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
@@ -21,8 +28,8 @@ const styles = StyleSheet.create({
     borderColor: palette.light.primary,
     borderRadius: 25,
     borderWidth: 2,
-    paddingHorizontal: 10,
-    paddingVertical: 7,
+    paddingHorizontal: 17,
+    paddingVertical: 10,
   },
   label: {
     color: palette.light.gray100,
