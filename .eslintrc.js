@@ -13,12 +13,12 @@ module.exports = {
     'react-native/react-native': true,
   },
   rules: {
-    'sort-imports': [
-      1,
-      {
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
-    ],
+    // 'sort-imports': [
+    //   1,
+    //   {
+    //     memberSyntaxSortOrder: ['single', 'multiple', 'none', 'all'],
+    //   },
+    // ],
     'no-shadow': 1,
     'no-param-reassign': 1,
     'no-console': 1,
