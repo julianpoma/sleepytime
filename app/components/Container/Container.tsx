@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import palette from '../../lib/palette';
+import tw from '../../lib/tw';
+import { StyleSheet, View } from 'react-native';
 
 const Container = ({ children }: React.PropsWithChildren<any>) => (
   <View style={styles.container}>{children}</View>
@@ -9,7 +9,7 @@ const Container = ({ children }: React.PropsWithChildren<any>) => (
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: palette.light.backgrounColor,
+    backgroundColor: tw.color.light.backgrounColor,
     flex: 1,
     justifyContent: 'center',
   },

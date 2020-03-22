@@ -1,21 +1,18 @@
-import palette from '../../lib/palette';
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  StyleProp,
-} from 'react-native';
+import tw from '../../lib/tw';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface IProps {
   label: string;
   onPress: React.EventHandler<any>;
-  wrapperStyle?: StyleProp<any>;
+  margin?: {
+    marginVertical: number;
+    marginHorizontal: number;
+  };
 }
 
-const Primary = ({ onPress, label, wrapperStyle }: IProps) => (
-  <View style={wrapperStyle}>
+const Primary = ({ onPress, label, margin }: IProps) => (
+  <View style={margin}>
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
@@ -24,16 +21,15 @@ const Primary = ({ onPress, label, wrapperStyle }: IProps) => (
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: palette.light.primary,
-    borderColor: palette.light.primary,
-    borderRadius: 25,
-    borderWidth: 2,
-    paddingHorizontal: 17,
-    paddingVertical: 10,
+    ...tw.defaultButtonShadow,
+    backgroundColor: tw.color.light.primary,
+    borderRadius: tw.borderRadius.full,
+    paddingHorizontal: tw.padding.p8,
+    paddingVertical: tw.padding.p4,
   },
   label: {
-    color: palette.light.gray100,
-    fontSize: 18,
+    color: tw.color.light.gray100,
+    fontSize: tw.text.base,
     fontWeight: '600',
   },
 });
