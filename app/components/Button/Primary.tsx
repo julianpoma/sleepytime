@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     color: tw.color.light.gray100,
     fontSize: tw.text.base,
     fontWeight: Platform.OS === 'android' ? 'bold' : '600',
+    letterSpacing: tw.letterSpacing.wide,
   },
 });
 

@@ -15,16 +15,14 @@ const Primary = ({ label }: IProps) => (
 const styles = StyleSheet.create({
   badge: {
     backgroundColor: tw.color.light.primary200,
-    borderColor: tw.color.light.primary,
     borderRadius: tw.borderRadius.full,
-    borderWidth: tw.borderWidth.base,
     paddingHorizontal: tw.padding.p2,
     paddingVertical: tw.padding.p1,
   },
   label: {
-    color: tw.color.light.primary900,
+    color: tw.color.light.primary800,
     fontSize: tw.text.xs,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });

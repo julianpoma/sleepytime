@@ -46,6 +46,12 @@ const tw = {
     border4: 4,
     border8: 8,
   },
+  letterSpacing: {
+    none: 0,
+    wide: 0.4,
+    wider: 0.8,
+    widest: 1.6,
+  },
   margin: {
     none: 0,
     m1: 4,

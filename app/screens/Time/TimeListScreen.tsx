@@ -10,7 +10,7 @@ const TimeListScreen = () => {
   const cards = [...Array(8).keys()].map(() => (
     <TimeCard
       time="09:00 AM"
-      recommended={true}
+      recommended={Math.random() > 0.5}
       sleepCycles="8"
       sleepTime="7:00"
     />
