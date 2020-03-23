@@ -47,6 +47,7 @@ const TimeScreen = () => {
       </TouchableOpacity>
 
       <DateTimePickerModal
+        headerTextIOS="Pick a time"
         is24Hour={false}
         isVisible={showPicker}
         minuteInterval={5}

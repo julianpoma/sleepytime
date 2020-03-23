@@ -7,6 +7,7 @@ import { TimeCard } from './components';
 const TimeListScreen = () => {
   const title =
     'If you go to bed now, you should try to wake up at one of the following hours:';
+
   const cards = [...Array(8).keys()].map(() => (
     <TimeCard
       time="09:00 AM"
@@ -22,10 +23,7 @@ const TimeListScreen = () => {
         <Text style={styles.title}>{title}</Text>
       </View>
       <ScrollView style={styles.scroll}>{cards}</ScrollView>
-      <Button.Primary
-        label="Thank you!"
-        onPress={() => Alert.alert('Welcome!')}
-      />
+      <Button.Primary label="Got it!" onPress={() => Alert.alert('Welcome!')} />
     </Container>
   );
 };

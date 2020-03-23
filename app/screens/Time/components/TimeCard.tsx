@@ -10,14 +10,8 @@ interface IProps {
 }
 
 const TimeCard = ({ time, recommended, sleepCycles, sleepTime }: IProps) => {
-  const cardStyle = [styles.card];
-
-  if (recommended) {
-    cardStyle.push(styles.highlighted as any);
-  }
-
   return (
-    <View style={cardStyle}>
+    <View style={[styles.card, recommended ? styles.highlight : null]}>
       <View style={styles.cardLeft}>
         <Text style={styles.time}>{time.toUpperCase()}</Text>
       </View>
@@ -55,7 +49,7 @@ const styles = StyleSheet.create({
   cardRight: {
     alignItems: 'flex-end',
   },
-  highlighted: {
+  highlight: {
     borderColor: tw.color.light.primary400,
   },
   sleepCycles: {
