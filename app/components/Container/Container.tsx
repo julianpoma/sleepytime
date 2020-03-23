@@ -1,9 +1,11 @@
 import React from 'react';
 import tw from '../../lib/tw';
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, Platform } from 'react-native';
 
-const Container = ({ children }: React.PropsWithChildren<any>) => (
-  <View style={styles.container}>{children}</View>
+const Container = ({ children, style }: React.PropsWithChildren<any>) => (
+  <SafeAreaView style={[styles.container, styles.safeAndroid, style]}>
+    {children}
+  </SafeAreaView>
 );
 
 const styles = StyleSheet.create({
@@ -12,6 +14,9 @@ const styles = StyleSheet.create({
     backgroundColor: tw.color.light.backgrounColor,
     flex: 1,
     justifyContent: 'center',
+  },
+  safeAndroid: {
+    paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });
 

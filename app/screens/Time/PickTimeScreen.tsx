@@ -33,10 +33,10 @@ const TimeScreen = () => {
 
       <TouchableOpacity
         style={styles.timeBox}
-        onPress={() => setShowPicker(true)}
+        onPress={() => setShowPicker(!showPicker)}
       >
         <Text style={styles.timeText}>
-          {hour} : {minute} {ampm}
+          {hour}:{minute} {ampm}
         </Text>
       </TouchableOpacity>
 
