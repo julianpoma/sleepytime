@@ -11,7 +11,7 @@ const Container = ({ children, style }: React.PropsWithChildren<any>) => (
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: tw.color.light.backgrounColor,
+    backgroundColor: tw.color.light.gray300,
     flex: 1,
     justifyContent: 'center',
   },

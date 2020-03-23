@@ -32,8 +32,8 @@ const TimeCard = ({ time, recommended, sleepCycles, sleepTime }: IProps) => {
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: tw.color.light.backgrounColor,
-    borderColor: tw.color.light.backgrounColor,
+    backgroundColor: tw.color.light.gray100,
+    borderColor: tw.color.light.gray100,
     borderRadius: tw.borderRadius.rounded,
     borderWidth: tw.borderWidth.border2,
     elevation: 1,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: tw.margin.m2,
     paddingHorizontal: tw.padding.p4,
-    paddingVertical: tw.padding.p4,
+    paddingVertical: tw.padding.p3,
     shadowColor: tw.color.light.gray900,
     shadowOffset: {
       height: 3,
@@ -56,9 +56,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   highlighted: {
-    borderColor: tw.color.light.primary,
+    borderColor: tw.color.light.primary400,
   },
-  sleepCycles: { color: tw.color.light.gray600, fontSize: tw.text.sm },
+  sleepCycles: {
+    color: tw.color.light.gray600,
+    fontSize: tw.text.sm,
+  },
   sleepTime: {
     color: tw.color.light.gray600,
     fontSize: tw.text.sm,
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
   },
   time: {
     color: tw.color.light.gray900,
-    fontSize: tw.text.xl,
+    fontSize: tw.text.xl3,
     marginBottom: tw.margin.m1,
   },
 });

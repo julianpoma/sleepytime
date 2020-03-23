@@ -12,7 +12,6 @@ const tw = {
       primary: '#667EEA',
     },
     light: {
-      backgrounColor: '#F7FAFC',
       gray100: '#F7FAFC',
       gray200: '#EDF2F7',
       gray300: '#E2E8F0',

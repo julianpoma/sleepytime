@@ -5,10 +5,12 @@ import tw from '../../lib/tw';
 import { TimeCard } from './components';
 
 const TimeListScreen = () => {
-  const cards = [...Array(15).keys()].map(() => (
+  const title =
+    'If you go to bed now, you should try to wake up at one of the following hours:';
+  const cards = [...Array(8).keys()].map(() => (
     <TimeCard
       time="09:00 AM"
-      recommended={false}
+      recommended={true}
       sleepCycles="8"
       sleepTime="7:00"
     />
@@ -17,13 +19,9 @@ const TimeListScreen = () => {
   return (
     <Container style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>
-          You should try to wake up at one of the following times
-        </Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
-      <ScrollView style={styles.scroll} centerContent={true}>
-        {cards}
-      </ScrollView>
+      <ScrollView style={styles.scroll}>{cards}</ScrollView>
       <Button.Primary
         label="Thank you!"
         onPress={() => Alert.alert('Welcome!')}

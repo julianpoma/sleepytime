@@ -65,10 +65,6 @@ const TimeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  datePicker: {
-    backgroundColor: tw.color.light.backgrounColor,
-    width: '75%',
-  },
   header: {
     marginBottom: tw.margin.m4,
   },
@@ -79,14 +75,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: tw.padding.p8,
     paddingVertical: tw.padding.p4,
   },
+  timeText: {
+    color: tw.color.light.primary900,
+    fontSize: tw.text.xl4,
+    fontWeight: Platform.OS === 'ios' ? '600' : 'bold',
+  },
   title: {
     color: tw.color.light.gray900,
     fontSize: tw.text.xl,
-  },
-  timeText: {
-    color: tw.color.light.primary900,
-    fontSize: tw.text.xl3,
-    fontWeight: '600',
   },
 });
 

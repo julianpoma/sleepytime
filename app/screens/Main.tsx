@@ -2,7 +2,7 @@ import React from 'react';
 import tw from '../lib/tw';
 import { Button, Container } from '../components';
 import { AntDesign } from '@expo/vector-icons';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform } from 'react-native';
 
 const chevron = (
   <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
@@ -22,7 +22,7 @@ const Main = () => {
         <Button.Primary
           margin={styles.button}
           icon={chevron}
-          label="Fall sleep at..."
+          label="Fall asleep at..."
           onPress={() => {}}
         />
         <Button.Primary
@@ -49,8 +49,7 @@ const styles = StyleSheet.create({
   },
   h1: {
     color: tw.color.light.gray900,
-    fontSize: tw.text.xl2,
-    fontWeight: '600',
+    fontSize: tw.text.xl,
     marginBottom: tw.margin.m4,
   },
   options: {
