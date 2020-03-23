@@ -1,3 +1,4 @@
-import TimeScreen from './TimeScreen';
+import PickTimeScreen from './PickTimeScreen';
+import TimeListScreen from './TimeListScreen';
 
-export default { TimeScreen };
+export default { PickTimeScreen, TimeListScreen };
