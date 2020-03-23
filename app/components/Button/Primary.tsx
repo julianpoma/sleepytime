@@ -14,7 +14,7 @@ interface IProps {
 const Primary = ({ onPress, label, margin }: IProps) => (
   <View style={margin}>
     <TouchableOpacity onPress={onPress} style={styles.button}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.label}>{label.toUpperCase()}</Text>
     </TouchableOpacity>
   </View>
 );
