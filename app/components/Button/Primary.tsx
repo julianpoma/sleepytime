@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface IProps {
   label: string;
+  icon?: JSX.Element;
   onPress: React.EventHandler<any>;
   margin?: {
     marginVertical: number;
@@ -11,10 +12,11 @@ interface IProps {
   };
 }
 
-const Primary = ({ onPress, label, margin }: IProps) => (
+const Primary = ({ onPress, label, margin, icon }: IProps) => (
   <View style={margin}>
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.label}>{label.toUpperCase()}</Text>
+      {icon ? icon : null}
     </TouchableOpacity>
   </View>
 );
@@ -22,8 +24,11 @@ const Primary = ({ onPress, label, margin }: IProps) => (
 const styles = StyleSheet.create({
   button: {
     ...tw.defaultButtonShadow,
+    alignItems: 'center',
     backgroundColor: tw.color.light.primary,
     borderRadius: tw.borderRadius.full,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingHorizontal: tw.padding.p8,
     paddingVertical: tw.padding.p4,
   },

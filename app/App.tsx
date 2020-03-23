@@ -5,7 +5,7 @@ import Time from './screens/Time';
 
 const App: React.FC<{}> = () => (
   <Error.Boundary>
-    <Time.TimeScreen></Time.TimeScreen>
+    <Main></Main>
   </Error.Boundary>
 );
 
