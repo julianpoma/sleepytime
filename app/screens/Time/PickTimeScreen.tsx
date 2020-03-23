@@ -2,25 +2,31 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import React, { useState } from 'react';
 import tw from '../../lib/tw';
 import { Button, Container } from '../../components';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { getFormattedTime } from '../../services/time';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const TimeScreen = () => {
   const title = 'I want to wake up at:';
 
   const [showPicker, setShowPicker] = useState(false);
-  const [hour, setHour] = useState('7');
+  const [hour, setHour] = useState('07');
   const [minute, setMinute] = useState('30');
   const [ampm, setAmpm] = useState('AM');
 
   const onPickerConfirm = (date: Date) => {
+    setShowPicker(false);
+
     const [h, m, am] = getFormattedTime(date);
 
     setHour(h);
     setMinute(m);
     setAmpm(am);
-
-    setShowPicker(false);
   };
 
   const onPickerCancel = () => setShowPicker(false);
@@ -33,7 +39,7 @@ const TimeScreen = () => {
 
       <TouchableOpacity
         style={styles.timeBox}
-        onPress={() => setShowPicker(!showPicker)}
+        onPress={() => setShowPicker(true)}
       >
         <Text style={styles.timeText}>
           {hour}:{minute} {ampm}
@@ -45,8 +51,8 @@ const TimeScreen = () => {
         isVisible={showPicker}
         minuteInterval={5}
         mode="time"
-        onConfirm={onPickerConfirm}
         onCancel={onPickerCancel}
+        onConfirm={onPickerConfirm}
       />
 
       <Button.Primary

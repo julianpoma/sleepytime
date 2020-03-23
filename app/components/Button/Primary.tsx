@@ -1,6 +1,12 @@
 import React from 'react';
 import tw from '../../lib/tw';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Platform,
+} from 'react-native';
 
 interface IProps {
   label: string;
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
   label: {
     color: tw.color.light.gray100,
     fontSize: tw.text.base,
-    fontWeight: '600',
+    fontWeight: Platform.OS === 'android' ? 'bold' : '600',
   },
 });
 

@@ -6,7 +6,11 @@ export const getFormattedTime = (date: Date): string[] => {
 
   hour = hour % 12;
 
-  const hourString = hour ? hour.toString() : '12';
+  const hourString = hour
+    ? hour < 10
+      ? '0' + hour.toString()
+      : hour.toString()
+    : '12';
   const minuteString = minutes < 10 ? '0' + minutes : minutes.toString();
 
   return [hourString, minuteString, ampm];
