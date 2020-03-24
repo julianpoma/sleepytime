@@ -1,5 +1,5 @@
 import React from 'react';
-import { tw, IOS } from '../../utils';
+import { IOS, tw } from '../../utils';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface IProps {
@@ -12,7 +12,7 @@ interface IProps {
   };
 }
 
-const Primary = ({ onPress, label, margin, icon }: IProps) => (
+const Primary: React.FC<IProps> = ({ onPress, label, margin, icon }) => (
   <View style={margin}>
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.label}>{label.toUpperCase()}</Text>

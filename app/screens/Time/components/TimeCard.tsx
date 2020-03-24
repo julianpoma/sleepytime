@@ -9,7 +9,12 @@ interface IProps {
   sleepTime: string;
 }
 
-const TimeCard = ({ time, recommended, sleepCycles, sleepTime }: IProps) => {
+const TimeCard: React.FC<IProps> = ({
+  time,
+  recommended,
+  sleepCycles,
+  sleepTime,
+}) => {
   return (
     <View style={[styles.card, recommended ? styles.highlight : null]}>
       <View style={styles.cardLeft}>

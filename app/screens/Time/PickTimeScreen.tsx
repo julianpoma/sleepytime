@@ -1,8 +1,8 @@
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import React, { useState } from 'react';
-import { tw, IOS } from '../../utils';
 import { Button, Container } from '../../components';
 import { getFormattedTime } from '../../services/time';
+import { IOS, tw } from '../../utils';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const TimeScreen = () => {

@@ -87,7 +87,7 @@ const tw = {
 const shadow = {
   defaultButtonShadow: {
     elevation: 2, // Android
-    shadowColor: tw.color.light.backgrounColor,
+    shadowColor: tw.color.light.gray900,
     shadowOffset: {
       height: 1,
       width: 3,
