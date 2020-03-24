@@ -1,44 +1,41 @@
 import { DateTime } from 'luxon';
 import { Time } from '../types';
 
-const SLEEP_CICLE_DURATION = 45;
-const FALL_ASLEEP_TIME = 15;
-const AMOUNT_OF_CICLES = [5, 6];
-const DEFAULT_AMOUNT_OF_CYCLES = 8;
+// eslint-disable-next-line yoda
+const recommended = (n: number) => 5 <= n && n <= 6;
 
-const getAmpm = (hour: number): string => (hour < 12 ? 'AM' : 'PM');
+const sleepTimeStr = (n: number): string => {
+  const min = n % 60;
 
-const formatHour = (hour: number): string => {
-  if (!hour) {
-    return '12';
-  }
+  const minStr = min < 10 ? '0' + min : min.toString();
 
-  return hour < 10 ? '0' + hour.toString() : hour.toString();
+  return Math.floor(n / 60) + ':' + minStr;
 };
 
-const formatMinutes = (minutes: number): string =>
-  minutes < 10 ? '0' + minutes : minutes.toString();
-
-export const powerNap = (): Time[] => {
-  const now = DateTime.local();
-
-  const pnTime = now.plus({ minute: 20 });
-
-  return [
-    {
-      ampm: getAmpm(pnTime.hour),
-      hour: formatHour(pnTime.hour),
-      minute: formatMinutes(pnTime.minute),
-      recommended: false,
-      sleepCycles: 0,
-      sleepTime: '0:20',
-      time: pnTime,
-    },
-  ];
-};
-
-export const getFormattedTime = (date: Date): string[] => [
-  formatHour(date.getHours() % 12),
-  formatMinutes(date.getMinutes()),
-  getAmpm(date.getHours()),
+export const powerNap = (): Time[] => [
+  {
+    recommended: false,
+    sleepCycles: 0,
+    sleepTime: sleepTimeStr(20),
+    time: DateTime.local().plus({ minutes: 20 }),
+  },
 ];
+
+export const toBedRightNow = (): Time[] => {
+  const cycles = 7;
+  const duration = 90;
+  const buffer = 15;
+
+  const now = DateTime.local().plus({ minutes: buffer });
+
+  return [...Array(cycles).keys()].map(i => {
+    const sleepCycles = i + 1;
+
+    return {
+      recommended: recommended(sleepCycles),
+      sleepCycles,
+      sleepTime: sleepTimeStr(sleepCycles * duration),
+      time: now.plus({ minutes: sleepCycles * duration }),
+    };
+  });
+};

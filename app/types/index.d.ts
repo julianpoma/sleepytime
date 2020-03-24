@@ -6,9 +6,6 @@ type RootStackParamList = {
 };
 
 type Time = {
-  ampm: string;
-  hour: string;
-  minute: string;
   recommended: boolean;
   sleepTime: string;
   sleepCycles: number;

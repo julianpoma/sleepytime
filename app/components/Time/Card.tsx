@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 interface IProps {
   time: string;
   recommended: boolean;
-  sleepCycles: string;
+  sleepCycles: number;
   sleepTime: string;
 }
 

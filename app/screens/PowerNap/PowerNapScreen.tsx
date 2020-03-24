@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Container, Time } from '../../components';
 import { powerNap } from '../../services/time';
-import { tw } from '../../utils';
+import { tw, HOUR_12_FORMAT } from '../../utils';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { RootStackParamList } from '../../types';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -18,9 +18,9 @@ const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
   const cards = times.map(t => (
     <Time.Card
       key={t.time.toMillis()}
-      time={`${t.hour}:${t.minute} ${t.ampm}`}
+      time={`${t.time.toFormat(HOUR_12_FORMAT)}`}
       recommended={t.recommended}
-      sleepCycles={t.sleepCycles.toString()}
+      sleepCycles={t.sleepCycles}
       sleepTime={t.sleepTime}
     />
   ));
