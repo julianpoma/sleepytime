@@ -1,12 +1,7 @@
 import React from 'react';
 import tw from '../../lib/tw';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Platform,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { isIOS } from '../../lib/utils';
 
 interface IProps {
   label: string;
@@ -18,7 +13,7 @@ interface IProps {
   };
 }
 
-const Primary = ({ onPress, label, margin, icon }: IProps) => (
+const Primary: React.FC<IProps> = ({ onPress, label, margin, icon }) => (
   <View style={margin}>
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.label}>{label.toUpperCase()}</Text>
@@ -41,7 +36,7 @@ const styles = StyleSheet.create({
   label: {
     color: tw.color.light.gray100,
     fontSize: tw.text.base,
-    fontWeight: Platform.OS === 'android' ? 'bold' : '600',
+    fontWeight: isIOS ? '600' : 'bold',
     letterSpacing: tw.letterSpacing.wide,
   },
 });

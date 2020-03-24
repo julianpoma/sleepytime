@@ -1,15 +1,10 @@
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import React, { useState } from 'react';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import tw from '../../lib/tw';
 import { Button, Container } from '../../components';
 import { getFormattedTime } from '../../services/time';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { isIOS } from '../../lib/utils';
 
 const TimeScreen = () => {
   const title = 'I want to wake up at:';
@@ -79,7 +74,7 @@ const styles = StyleSheet.create({
   timeText: {
     color: tw.color.light.primary900,
     fontSize: tw.text.xl4,
-    fontWeight: Platform.OS === 'ios' ? '600' : 'bold',
+    fontWeight: isIOS ? '600' : 'bold',
   },
   title: {
     color: tw.color.light.gray900,

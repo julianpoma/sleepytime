@@ -1,9 +1,24 @@
 import React from 'react';
 import tw from '../../lib/tw';
-import { SafeAreaView, StatusBar, StyleSheet, Platform } from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Platform,
+  ViewStyle,
+  StyleProp,
+} from 'react-native';
+import { isIOS } from '../../lib/utils';
 
-const Container = ({ children, style }: React.PropsWithChildren<any>) => (
-  <SafeAreaView style={[styles.container, styles.safeAndroid, style]}>
+interface IProps {
+  style?: StyleProp<ViewStyle>;
+}
+
+const Container: React.FC<React.PropsWithChildren<IProps>> = ({
+  children,
+  style,
+}) => (
+  <SafeAreaView style={StyleSheet.compose(styles.container, style)}>
     {children}
   </SafeAreaView>
 );
@@ -14,9 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: tw.color.light.gray300,
     flex: 1,
     justifyContent: 'center',
-  },
-  safeAndroid: {
-    paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    paddingVertical: isIOS ? 0 : StatusBar.currentHeight,
   },
 });
 
