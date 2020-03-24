@@ -1,14 +1,20 @@
 import React from 'react';
-import { tw } from '../utils';
-import { Button, Container } from '../components';
+import { Button, Container } from '../../components';
+import { RootStackParamList } from '../../types';
+import { tw } from '../../utils';
 import { AntDesign } from '@expo/vector-icons';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
 
-const chevron = (
-  <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
-);
+interface IProps {
+  navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+}
 
-const Main: React.FC<{}> = () => {
+const Main: React.FC<IProps> = ({ navigation }) => {
+  const chevron = (
+    <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
+  );
+
   return (
     <Container>
       <Text style={styles.h1}>I would like to...</Text>
@@ -35,7 +41,7 @@ const Main: React.FC<{}> = () => {
           margin={styles.button}
           icon={chevron}
           label="Take a power nap"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('PowerNap')}
         />
       </View>
     </Container>

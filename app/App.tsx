@@ -1,11 +1,25 @@
-import Main from './screens/Main';
 import React from 'react';
 import { Error } from './components';
-import Time from './screens/Time';
+import { MainScreen, PowerNapScreen } from './screens';
+import { Stack } from './navigator';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App: React.FC<{}> = () => (
   <Error.Boundary>
-    <Time.TimeListScreen></Time.TimeListScreen>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={MainScreen}
+          options={{ title: 'Sleepyti.me' }}
+        />
+        <Stack.Screen
+          name="PowerNap"
+          component={PowerNapScreen}
+          options={{ title: 'Power Nap' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   </Error.Boundary>
 );
 
