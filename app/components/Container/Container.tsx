@@ -1,5 +1,5 @@
 import React from 'react';
-import tw from '../../lib/tw';
+import { tw } from '../../utils';
 import { SafeAreaView, StatusBar, StyleSheet, Platform } from 'react-native';
 
 const Container = ({ children, style }: React.PropsWithChildren<any>) => (

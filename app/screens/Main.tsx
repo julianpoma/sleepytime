@@ -1,8 +1,8 @@
 import React from 'react';
-import tw from '../lib/tw';
+import { tw } from '../utils';
 import { Button, Container } from '../components';
 import { AntDesign } from '@expo/vector-icons';
-import { StyleSheet, Text, View, Platform } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const chevron = (
   <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />

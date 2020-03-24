@@ -1,7 +1,7 @@
 import { Container, Button } from '../../components';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Alert } from 'react-native';
-import tw from '../../lib/tw';
+import { tw } from '../../utils';
 import { TimeCard } from './components';
 
 const TimeListScreen = () => {

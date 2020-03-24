@@ -1,5 +1,5 @@
 import React from 'react';
-import tw from '../../../lib/tw';
+import { tw } from '../../../utils';
 import { StyleSheet, Text, View } from 'react-native';
 
 interface IProps {
