@@ -4,11 +4,11 @@ import { Text, View, StyleSheet, ScrollView, Alert } from 'react-native';
 import { tw } from '../../utils';
 import { TimeCard } from './components';
 
-const TimeListScreen = () => {
+const TimeListScreen: React.FC<{}> = () => {
   const title =
     'If you go to bed now, you should try to wake up at one of the following hours:';
 
-  const cards = [...Array(8).keys()].map(() => (
+  const cards = [...(Array(8).keys() as any)].map(() => (
     <TimeCard
       time="09:00 AM"
       recommended={Math.random() > 0.5}

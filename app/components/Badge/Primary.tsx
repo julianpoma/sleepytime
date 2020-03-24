@@ -1,12 +1,12 @@
 import React from 'react';
-import { tw} from '../../utils';
+import { tw } from '../../utils';
 import { StyleSheet, Text, View } from 'react-native';
 
 interface IProps {
   label: string;
 }
 
-const Primary = ({ label }: IProps) => (
+const Primary: React.FC<IProps> = ({ label }) => (
   <View style={styles.badge}>
     <Text style={styles.label}>{label.toUpperCase()}</Text>
   </View>

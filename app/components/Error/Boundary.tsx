@@ -8,14 +8,14 @@ interface IState {
   message?: null;
 }
 
-interface IProp {
+interface IProps {
   hasError?: boolean;
 }
 
 class Boundary extends Component {
   state: Readonly<IState>;
 
-  constructor(props: React.PropsWithChildren<IProp>) {
+  constructor(props: React.PropsWithChildren<IProps>) {
     super(props);
     this.state = { hasError: false, message: null };
   }

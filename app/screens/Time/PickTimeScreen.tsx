@@ -5,7 +5,7 @@ import { getFormattedTime } from '../../services/time';
 import { IOS, tw } from '../../utils';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const TimeScreen = () => {
+const TimeScreen: React.FC<{}> = () => {
   const title = 'I want to wake up at:';
 
   const [showPicker, setShowPicker] = useState(false);

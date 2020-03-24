@@ -8,7 +8,7 @@ const chevron = (
   <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
 );
 
-const Main = () => {
+const Main: React.FC<{}> = () => {
   return (
     <Container>
       <Text style={styles.h1}>I would like to...</Text>
