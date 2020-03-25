@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 interface IProps {
   time: string;
   recommended: boolean;
-  sleepCycles: string;
+  sleepCycles: number;
   sleepTime: string;
 }
 
@@ -22,7 +22,9 @@ const TimeCard: React.FC<IProps> = ({
       </View>
       <View style={styles.cardRight}>
         <Text style={styles.sleepTime}>{sleepTime} hours</Text>
-        <Text style={styles.sleepCycles}>{sleepCycles} sleep cycles</Text>
+        <Text style={styles.sleepCycles}>
+          {sleepCycles} sleep {sleepCycles === 1 ? 'cycle' : 'cycles'}
+        </Text>
       </View>
     </View>
   );

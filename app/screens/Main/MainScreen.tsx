@@ -35,7 +35,7 @@ const Main: React.FC<IProps> = ({ navigation }) => {
           margin={styles.button}
           icon={chevron}
           label="Go to bed now"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('SleepNow')}
         />
         <Button.Primary
           margin={styles.button}

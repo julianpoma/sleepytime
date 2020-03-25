@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: tw.color.light.gray300,
     flex: 1,
     justifyContent: 'center',
-    paddingVertical: IOS ? 0 : StatusBar.currentHeight,
   },
 });
 

@@ -5,8 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject",
-    "ts": "yarn ts-node"
+    "eject": "expo eject"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.3.0",
@@ -39,7 +38,6 @@
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-native": "^3.8.1",
-    "ts-node": "^8.8.1",
     "typescript": "^3.8.3"
   },
   "private": true

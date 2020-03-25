@@ -1,30 +1,30 @@
 import React from 'react';
 import { Button, Container, Time } from '../../components';
-import { powerNap } from '../../services/time';
-import { tw, HOUR_12_FORMAT } from '../../utils';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { HOUR_12_FORMAT, tw } from '../../utils';
 import { RootStackParamList } from '../../types';
+import { toBedRightNow } from '../../services/time';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 interface IProps {
-  navigation: StackNavigationProp<RootStackParamList, 'PowerNap'>;
+  navigation: StackNavigationProp<RootStackParamList, 'SleepNow'>;
 }
 
-const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
+const SleepNowScreen: React.FC<IProps> = ({ navigation }) => {
   const title =
-    "You only need 20 minutes to feel truly rested! And don't forget a bit of sun exposure.\n\nWake up at:";
+    "A good night's sleep consists of 5-6 complete sleep cycles.\n\nIf you head to bed right now, you should try to wake up at one of the following times";
 
-  const times = powerNap();
-
-  const cards = times.map(t => (
-    <Time.Card
-      key={t.time.toMillis()}
-      time={`${t.time.toFormat(HOUR_12_FORMAT)}`}
-      recommended={t.recommended}
-      sleepCycles={t.sleepCycles}
-      sleepTime={t.sleepTime}
-    />
-  ));
+  const cards = toBedRightNow().map(t => {
+    return (
+      <Time.Card
+        key={t.time.toMillis()}
+        time={`${t.time.toFormat(HOUR_12_FORMAT)}`}
+        recommended={t.recommended}
+        sleepCycles={t.sleepCycles}
+        sleepTime={t.sleepTime}
+      />
+    );
+  });
 
   return (
     <Container style={styles.container}>
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PowerNapScreen;
+export default SleepNowScreen;
