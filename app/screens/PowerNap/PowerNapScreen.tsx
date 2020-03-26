@@ -32,10 +32,6 @@ const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
         <Text style={styles.title}>{title}</Text>
       </View>
       <ScrollView style={styles.scroll}>{cards}</ScrollView>
-      <Button.Primary
-        text="Got it!"
-        onPress={() => navigation.navigate('Home')}
-      />
     </Container>
   );
 };

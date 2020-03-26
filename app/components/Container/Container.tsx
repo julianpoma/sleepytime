@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: tw.color.light.gray100,
     flex: 1,
     justifyContent: 'center',
-    paddingBottom: IOS ? 0 : tw.margin.m4,
+    paddingBottom: tw.margin.m4,
   },
 });
 

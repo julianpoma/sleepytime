@@ -37,10 +37,6 @@ const FallAsleepScreen: React.FC<IProps> = ({ navigation, route }) => {
         <Text style={styles.title}>{title}</Text>
       </View>
       <ScrollView style={styles.scroll}>{cards}</ScrollView>
-      <Button.Primary
-        text="Got it!"
-        onPress={() => navigation.navigate('Home')}
-      />
     </Container>
   );
 };
