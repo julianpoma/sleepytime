@@ -22,7 +22,7 @@ export const powerNap = (): Time[] => [
 ];
 
 export const toBedRightNow = (): Time[] => {
-  const cycles = 7;
+  const cycles = 8;
   const duration = 90;
   const buffer = 15;
 

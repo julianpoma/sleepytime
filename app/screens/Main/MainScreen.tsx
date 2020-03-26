@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container } from '../../components';
 import { RootStackParamList } from '../../types';
 import { tw } from '../../utils';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -21,6 +21,10 @@ const Main: React.FC<IProps> = ({ navigation }) => {
       size={tw.text.xl}
       color={tw.color.light.primary}
     />
+  );
+
+  const info = (
+    <Feather name="info" size={tw.text.xl} color={tw.color.light.primary} />
   );
 
   return (
@@ -53,7 +57,7 @@ const Main: React.FC<IProps> = ({ navigation }) => {
         />
       </View>
       <View style={styles.options}>
-        <Button.Secondary text="Learn more" onPress={() => {}} />
+        <Button.Secondary icon={info} onPress={() => {}} />
         <Button.Secondary icon={settingsGear} onPress={() => {}} />
       </View>
     </Container>
@@ -67,9 +71,9 @@ const styles = StyleSheet.create({
   },
   options: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginTop: tw.margin.m6,
-    width: '70%',
+    width: '50%',
   },
   screens: {
     width: '70%',

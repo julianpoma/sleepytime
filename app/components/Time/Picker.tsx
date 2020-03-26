@@ -1,6 +1,6 @@
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import React, { useState } from 'react';
-import { IOS, tw } from '../../utils';
+import { tw } from '../../utils';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 interface IProps {
@@ -21,6 +21,7 @@ const TimeScreen: React.FC<IProps> = ({ onTimeSelected, time }) => {
   return (
     <>
       <TouchableOpacity
+        activeOpacity={0.7}
         style={styles.timeBox}
         onPress={() => setShowPicker(true)}
       >

@@ -1,4 +1,4 @@
-import Card from './Card';
 import Picker from './Picker';
+import List from './List';
 
-export default { Card, Picker };
+export default { List, Picker };

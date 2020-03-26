@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Badge from './Badge';
 
 interface IProps {
+  isLast: boolean;
   time: string;
   recommended: boolean;
   sleepCycles: number;
@@ -15,9 +16,10 @@ const TimeCard: React.FC<IProps> = ({
   recommended,
   sleepCycles,
   sleepTime,
+  isLast,
 }) => {
   return (
-    <View style={[styles.card]}>
+    <View style={[styles.card, isLast ? styles.last : null]}>
       <View style={styles.cardLeft}>
         <Text style={styles.time}>{time.toUpperCase()}</Text>
         {recommended ? <Badge text="best" style={styles.badge} /> : null}
@@ -52,6 +54,11 @@ const styles = StyleSheet.create({
   },
   highlight: {
     borderColor: tw.color.light.primary400,
+  },
+  last: {
+    borderBottomColor: tw.color.light.gray300,
+    borderBottomWidth: tw.borderWidth.border2,
+    marginBottom: tw.margin.m2,
   },
   sleepCycles: {
     color: tw.color.light.gray600,

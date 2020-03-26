@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 interface IProps {
+  activeOpacity?: number;
   buttonStyle: StyleProp<ViewStyle>;
   icon?: JSX.Element;
   margin: {
@@ -21,6 +22,7 @@ interface IProps {
 }
 
 const BaseButton: React.FC<IProps> = ({
+  activeOpacity,
   buttonStyle,
   icon,
   margin,
@@ -29,7 +31,11 @@ const BaseButton: React.FC<IProps> = ({
   textStyle,
 }) => (
   <View style={margin}>
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={buttonStyle}
+      activeOpacity={activeOpacity || 0.9}
+    >
       {text ? <Text style={textStyle}>{text.toUpperCase()}</Text> : null}
       {icon ? icon : null}
     </TouchableOpacity>

@@ -15,6 +15,7 @@ interface IProps {
 
 const Secondary: React.FC<IProps> = ({ onPress, text, margin, icon }) => (
   <BaseButton
+    activeOpacity={0.5}
     buttonStyle={styles.button}
     textStyle={styles.text}
     margin={margin}

@@ -22,7 +22,7 @@ const StackNavigator = () => (
     <Stack.Screen
       name="PowerNap"
       component={PowerNapScreen}
-      options={{ title: 'Power Nap' }}
+      options={{ title: 'Power nap' }}
     />
     <Stack.Screen
       name="SleepNow"
@@ -32,12 +32,12 @@ const StackNavigator = () => (
     <Stack.Screen
       name="FallAsleepPicker"
       component={FallAsleepPicker}
-      options={{ title: 'Fall asleep at...' }}
+      options={{ title: 'Pick a time' }}
     />
     <Stack.Screen
       name="FallAsleepScreen"
       component={FallAsleepScreen}
-      options={{ title: 'Fall asleep at...' }}
+      options={{ title: 'Fall asleep' }}
     />
   </Stack.Navigator>
 );
