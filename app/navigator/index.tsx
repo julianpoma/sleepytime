@@ -1,8 +1,13 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../types';
-import { MainScreen, PowerNapScreen, SleepNowScreen } from '../screens';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import {
+  MainScreen,
+  PowerNapScreen,
+  SleepNowScreen,
+  FallAsleepPicker,
+} from '../screens';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -22,6 +27,11 @@ const StackNavigator = () => (
       name="SleepNow"
       component={SleepNowScreen}
       options={{ title: 'Go to bed now' }}
+    />
+    <Stack.Screen
+      name="FallAsleepPicker"
+      component={FallAsleepPicker}
+      options={{ title: 'Fall asleep at...' }}
     />
   </Stack.Navigator>
 );

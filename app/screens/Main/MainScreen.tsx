@@ -29,7 +29,7 @@ const Main: React.FC<IProps> = ({ navigation }) => {
           margin={styles.button}
           icon={chevron}
           label="Fall asleep at..."
-          onPress={() => {}}
+          onPress={() => navigation.navigate('FallAsleepPicker')}
         />
         <Button.Primary
           margin={styles.button}

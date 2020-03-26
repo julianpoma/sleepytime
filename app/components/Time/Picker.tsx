@@ -1,43 +1,30 @@
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import React, { useState } from 'react';
-import { Button, Container } from '../../components';
-import { getFormattedTime } from '../../services/time';
 import { IOS, tw } from '../../utils';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const TimeScreen: React.FC<{}> = () => {
-  const title = 'I want to wake up at:';
+interface IProps {
+  onTimeSelected: Function;
+  time: string;
+}
 
+const TimeScreen: React.FC<IProps> = ({ onTimeSelected, time }) => {
   const [showPicker, setShowPicker] = useState(false);
-  const [hour, setHour] = useState('07');
-  const [minute, setMinute] = useState('30');
-  const [ampm, setAmpm] = useState('AM');
 
-  const onPickerConfirm = (date: Date) => {
+  const onPickerConfirm = date => {
     setShowPicker(false);
-
-    const [h, m, am] = getFormattedTime(date);
-
-    setHour(h);
-    setMinute(m);
-    setAmpm(am);
+    onTimeSelected(date);
   };
 
   const onPickerCancel = () => setShowPicker(false);
 
   return (
-    <Container>
-      <View style={styles.header}>
-        <Text style={styles.title}>{title}</Text>
-      </View>
-
+    <>
       <TouchableOpacity
         style={styles.timeBox}
         onPress={() => setShowPicker(true)}
       >
-        <Text style={styles.timeText}>
-          {hour}:{minute} {ampm}
-        </Text>
+        <Text style={styles.timeText}>{time}</Text>
       </TouchableOpacity>
 
       <DateTimePickerModal
@@ -49,20 +36,11 @@ const TimeScreen: React.FC<{}> = () => {
         onCancel={onPickerCancel}
         onConfirm={onPickerConfirm}
       />
-
-      <Button.Primary
-        margin={{ marginHorizontal: 0, marginVertical: tw.margin.m4 }}
-        onPress={() => {}}
-        label="Calculate"
-      />
-    </Container>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    marginBottom: tw.margin.m4,
-  },
   timeBox: {
     borderColor: tw.color.light.primary,
     borderRadius: tw.borderRadius.rounded,
@@ -74,10 +52,6 @@ const styles = StyleSheet.create({
     color: tw.color.light.primary900,
     fontSize: tw.text.xl4,
     fontWeight: IOS ? '600' : 'bold',
-  },
-  title: {
-    color: tw.color.light.gray900,
-    fontSize: tw.text.xl,
   },
 });
 

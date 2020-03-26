@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import { Time } from '../types';
+import { HOUR_12_FORMAT } from '../utils';
 
 // eslint-disable-next-line yoda
 const recommended = (n: number) => 5 <= n && n <= 6;
@@ -39,3 +40,6 @@ export const toBedRightNow = (): Time[] => {
     };
   });
 };
+
+export const formatTime = (date: Date): string =>
+  DateTime.fromJSDate(date).toFormat(HOUR_12_FORMAT);

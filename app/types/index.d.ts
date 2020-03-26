@@ -4,6 +4,8 @@ type RootStackParamList = {
   Home: undefined;
   SleepNow: undefined;
   PowerNap: undefined;
+  FallAsleepPicker: undefined;
+  FallAsleepScreen: undefined;
 };
 
 type Time = {
