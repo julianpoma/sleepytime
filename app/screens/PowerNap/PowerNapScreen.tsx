@@ -27,7 +27,7 @@ const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
   ));
 
   return (
-    <Container style={styles.container}>
+    <Container>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{title}</Text>
       </View>
@@ -41,7 +41,6 @@ const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: tw.color.light.gray300 },
   safeArea: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -51,6 +50,7 @@ const styles = StyleSheet.create({
     width: '85%',
   },
   title: {
+    color: tw.color.light.gray900,
     fontSize: tw.text.lg,
     textAlign: 'center',
   },

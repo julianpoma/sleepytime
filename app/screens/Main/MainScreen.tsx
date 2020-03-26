@@ -17,7 +17,7 @@ const Main: React.FC<IProps> = ({ navigation }) => {
 
   return (
     <Container>
-      <Text style={styles.h1}>I would like to...</Text>
+      <Text style={styles.title}>I would like to...</Text>
       <View style={styles.options}>
         <Button.Primary
           margin={styles.button}
@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     marginHorizontal: tw.margin.none,
     marginVertical: tw.margin.m2,
   },
-  h1: {
+  options: {
+    width: '70%',
+  },
+  title: {
     color: tw.color.light.gray900,
     fontSize: tw.text.xl,
     marginBottom: tw.margin.m4,
-  },
-  options: {
-    width: '70%',
   },
 });
 

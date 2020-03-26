@@ -20,9 +20,10 @@ const Container: React.FC<React.PropsWithChildren<IProps>> = ({
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: tw.color.light.gray300,
+    backgroundColor: tw.color.light.gray100,
     flex: 1,
     justifyContent: 'center',
+    paddingBottom: IOS ? 0 : tw.margin.m4,
   },
 });
 

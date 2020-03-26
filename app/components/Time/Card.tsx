@@ -1,6 +1,7 @@
 import React from 'react';
 import { tw } from '../../utils';
 import { StyleSheet, Text, View } from 'react-native';
+import Badge from './Badge';
 
 interface IProps {
   time: string;
@@ -16,9 +17,10 @@ const TimeCard: React.FC<IProps> = ({
   sleepTime,
 }) => {
   return (
-    <View style={[styles.card, recommended ? styles.highlight : null]}>
+    <View style={[styles.card]}>
       <View style={styles.cardLeft}>
         <Text style={styles.time}>{time.toUpperCase()}</Text>
+        {recommended ? <Badge label="best" style={styles.badge} /> : null}
       </View>
       <View style={styles.cardRight}>
         <Text style={styles.sleepTime}>{sleepTime} hours</Text>
@@ -29,24 +31,18 @@ const TimeCard: React.FC<IProps> = ({
 };
 
 const styles = StyleSheet.create({
+  badge: {
+    marginTop: tw.margin.m1,
+  },
   card: {
     alignItems: 'center',
     backgroundColor: tw.color.light.gray100,
-    borderColor: tw.color.light.gray100,
-    borderRadius: tw.borderRadius.rounded,
-    borderWidth: tw.borderWidth.border2,
-    elevation: 1,
+    borderTopColor: tw.color.light.gray300,
+    borderTopWidth: tw.borderWidth.border2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: tw.margin.m2,
-    paddingHorizontal: tw.padding.p4,
-    paddingVertical: tw.padding.p3,
+    paddingVertical: tw.padding.p4,
     shadowColor: tw.color.light.gray900,
-    shadowOffset: {
-      height: 3,
-      width: 1,
-    },
-    shadowOpacity: 0.1,
   },
   cardLeft: {
     alignItems: 'flex-start',
@@ -67,8 +63,8 @@ const styles = StyleSheet.create({
     marginBottom: tw.margin.m1,
   },
   time: {
-    color: tw.color.light.gray900,
-    fontSize: tw.text.xl3,
+    color: tw.color.light.primary700,
+    fontSize: tw.text.xl4,
     marginBottom: tw.margin.m1,
   },
 });
