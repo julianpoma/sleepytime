@@ -20,7 +20,7 @@ const TimeCard: React.FC<IProps> = ({
     <View style={[styles.card]}>
       <View style={styles.cardLeft}>
         <Text style={styles.time}>{time.toUpperCase()}</Text>
-        {recommended ? <Badge label="best" style={styles.badge} /> : null}
+        {recommended ? <Badge text="best" style={styles.badge} /> : null}
       </View>
       <View style={styles.cardRight}>
         <Text style={styles.sleepTime}>{sleepTime} hours</Text>

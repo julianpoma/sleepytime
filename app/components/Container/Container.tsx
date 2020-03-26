@@ -1,12 +1,6 @@
 import React from 'react';
 import { IOS, tw } from '../../utils';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  ViewStyle,
-  StyleProp,
-} from 'react-native';
+import { SafeAreaView, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
 interface IProps {
   style?: StyleProp<ViewStyle>;

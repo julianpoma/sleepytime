@@ -35,7 +35,7 @@ const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
         onPress={() =>
           navigation.navigate('FallAsleepScreen', { time: time.toMillis() })
         }
-        label="Calculate"
+        text="Calculate"
       />
     </Container>
   );

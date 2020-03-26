@@ -33,7 +33,7 @@ const SleepNowScreen: React.FC<IProps> = ({ navigation }) => {
       </View>
       <ScrollView style={styles.scroll}>{cards}</ScrollView>
       <Button.Primary
-        label="Got it!"
+        text="Got it!"
         onPress={() => navigation.navigate('Home')}
       />
     </Container>

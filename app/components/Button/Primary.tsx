@@ -1,9 +1,10 @@
 import React from 'react';
 import { IOS, tw } from '../../utils';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import BaseButton from './BaseButton';
 
 interface IProps {
-  label: string;
+  text: string;
   icon?: JSX.Element;
   onPress: React.EventHandler<any>;
   margin?: {
@@ -12,13 +13,15 @@ interface IProps {
   };
 }
 
-const Primary: React.FC<IProps> = ({ onPress, label, margin, icon }) => (
-  <View style={margin}>
-    <TouchableOpacity onPress={onPress} style={styles.button}>
-      <Text style={styles.label}>{label.toUpperCase()}</Text>
-      {icon ? icon : null}
-    </TouchableOpacity>
-  </View>
+const Primary: React.FC<IProps> = ({ onPress, text, margin, icon }) => (
+  <BaseButton
+    buttonStyle={styles.button}
+    textStyle={styles.text}
+    margin={margin}
+    onPress={onPress}
+    text={text}
+    icon={icon}
+  />
 );
 
 const styles = StyleSheet.create({
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: tw.padding.p8,
     paddingVertical: tw.padding.p4,
   },
-  label: {
+  text: {
     color: tw.color.light.gray100,
     fontSize: tw.text.base,
     fontWeight: IOS ? '600' : 'bold',

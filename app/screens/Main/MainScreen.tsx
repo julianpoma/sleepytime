@@ -15,45 +15,46 @@ const Main: React.FC<IProps> = ({ navigation }) => {
     <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
   );
 
+  const settingsGear = (
+    <AntDesign
+      name="setting"
+      size={tw.text.xl}
+      color={tw.color.light.primary}
+    />
+  );
+
   return (
     <Container>
       <Text style={styles.title}>I would like to...</Text>
-      <View style={styles.options}>
+      <View style={styles.screens}>
         <Button.Primary
           margin={styles.button}
           icon={chevron}
-          label="Wake up at..."
+          text="Wake up at..."
           onPress={() => {}}
         />
         <Button.Primary
           margin={styles.button}
           icon={chevron}
-          label="Fall asleep at..."
+          text="Fall asleep at..."
           onPress={() => navigation.navigate('FallAsleepPicker')}
         />
         <Button.Primary
           margin={styles.button}
           icon={chevron}
-          label="Go to bed now"
+          text="Go to bed now"
           onPress={() => navigation.navigate('SleepNow')}
         />
         <Button.Primary
           margin={styles.button}
           icon={chevron}
-          label="Take a power nap"
+          text="Take a power nap"
           onPress={() => navigation.navigate('PowerNap')}
         />
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          width: '70%',
-          justifyContent: 'space-between',
-          marginTop: tw.margin.m6,
-        }}
-      >
-        <Button.Secondary label="How it works?" onPress={() => {}} />
-        <Button.Secondary label="S" onPress={() => {}} />
+      <View style={styles.options}>
+        <Button.Secondary text="Learn more" onPress={() => {}} />
+        <Button.Secondary icon={settingsGear} onPress={() => {}} />
       </View>
     </Container>
   );
@@ -65,6 +66,12 @@ const styles = StyleSheet.create({
     marginVertical: tw.margin.m2,
   },
   options: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: tw.margin.m6,
+    width: '70%',
+  },
+  screens: {
     width: '70%',
   },
   title: {

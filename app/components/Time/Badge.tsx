@@ -3,24 +3,24 @@ import { tw, IOS } from '../../utils';
 import { StyleSheet, Text, View, StyleProp, ViewStyle } from 'react-native';
 
 interface IProps {
-  label: string;
+  text: string;
   style: StyleProp<ViewStyle>;
 }
 
-const Badge: React.FC<IProps> = ({ label, style }) => (
+const Badge: React.FC<IProps> = ({ text, style }) => (
   <View style={[styles.badge, style]}>
-    <Text style={styles.label}>{label.toUpperCase()}</Text>
+    <Text style={styles.text}>{text.toUpperCase()}</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: tw.color.light.gray200,
+    backgroundColor: tw.color.light.primary100,
     borderRadius: tw.borderRadius.full,
     paddingHorizontal: tw.padding.p2,
     paddingVertical: tw.padding.p1,
   },
-  label: {
+  text: {
     color: tw.color.light.primary600,
     fontSize: tw.text.xs,
     fontWeight: IOS ? '500' : 'bold',
