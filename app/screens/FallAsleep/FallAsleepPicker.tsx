@@ -32,7 +32,9 @@ const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
 
       <Button.Primary
         margin={styles.button}
-        onPress={() => navigation.navigate('FallAsleepScreen', { time })}
+        onPress={() =>
+          navigation.navigate('FallAsleepScreen', { time: time.toMillis() })
+        }
         label="Calculate"
       />
     </Container>

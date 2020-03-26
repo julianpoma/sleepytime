@@ -1,6 +1,5 @@
-import { DateTime } from 'luxon';
 import { Time } from '../types';
-import { HOUR_12_FORMAT } from '../utils';
+import { DateTime } from 'luxon';
 
 // eslint-disable-next-line yoda
 const recommended = (n: number) => 5 <= n && n <= 6;
@@ -37,6 +36,22 @@ export const toBedRightNow = (): Time[] => {
       sleepCycles,
       sleepTime: sleepTimeStr(sleepCycles * duration),
       time: now.plus({ minutes: sleepCycles * duration }),
+    };
+  });
+};
+
+export const fallAsleepAt = (time: DateTime): Time[] => {
+  const cycles = 7;
+  const duration = 90;
+
+  return [...Array(cycles).keys()].map(i => {
+    const sleepCycles = i + 1;
+
+    return {
+      recommended: recommended(sleepCycles),
+      sleepCycles,
+      sleepTime: sleepTimeStr(sleepCycles * duration),
+      time: time.plus({ minutes: sleepCycles * duration }),
     };
   });
 };

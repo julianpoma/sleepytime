@@ -7,6 +7,7 @@ import {
   PowerNapScreen,
   SleepNowScreen,
   FallAsleepPicker,
+  FallAsleepScreen,
 } from '../screens';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -31,6 +32,11 @@ const StackNavigator = () => (
     <Stack.Screen
       name="FallAsleepPicker"
       component={FallAsleepPicker}
+      options={{ title: 'Fall asleep at...' }}
+    />
+    <Stack.Screen
+      name="FallAsleepScreen"
+      component={FallAsleepScreen}
       options={{ title: 'Fall asleep at...' }}
     />
   </Stack.Navigator>
