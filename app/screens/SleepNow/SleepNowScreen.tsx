@@ -12,7 +12,7 @@ interface IProps {
 
 const SleepNowScreen: React.FC<IProps> = ({ navigation }) => {
   const title =
-    "A good night's sleep consists of 5-6 complete sleep cycles.\n\nIf you head to bed right now, you should try to wake up at one of the following times:";
+    "If you head to bed right now, you should try to wake up at one of the following times:";
 
   const cards = toBedRightNow().map(t => {
     return (
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   title: {
     color: tw.color.light.gray900,
     fontSize: tw.text.lg,
+    letterSpacing: tw.letterSpacing.wide,
     textAlign: 'center',
   },
   titleContainer: {

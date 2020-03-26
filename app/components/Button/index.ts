@@ -1,3 +1,4 @@
 import Primary from './Primary';
+import Secondary from './Secondary';
 
-export default { Primary };
+export default { Primary, Secondary };

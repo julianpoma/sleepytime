@@ -42,16 +42,15 @@ const TimeScreen: React.FC<IProps> = ({ onTimeSelected, time }) => {
 
 const styles = StyleSheet.create({
   timeBox: {
-    borderColor: tw.color.light.primary,
-    borderRadius: tw.borderRadius.rounded,
-    borderWidth: tw.borderWidth.border2,
-    paddingHorizontal: tw.padding.p8,
-    paddingVertical: tw.padding.p4,
+    borderBottomColor: tw.color.light.gray300,
+    borderBottomWidth: tw.borderWidth.border2,
+    paddingVertical: tw.padding.p1,
+    shadowRadius: 10,
   },
   timeText: {
-    color: tw.color.light.primary900,
-    fontSize: tw.text.xl4,
-    fontWeight: IOS ? '600' : 'bold',
+    color: tw.color.light.primary700,
+    fontSize: tw.text.xl5,
+    // fontWeight: IOS ? '600' : 'bold',
   },
 });
 

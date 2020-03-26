@@ -42,13 +42,14 @@ const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  button: { marginHorizontal: 0, marginVertical: tw.margin.m4 },
+  button: { marginHorizontal: 0, marginVertical: tw.margin.m6 },
   header: {
     marginBottom: tw.margin.m4,
   },
   title: {
     color: tw.color.light.gray900,
     fontSize: tw.text.xl,
+    letterSpacing: tw.letterSpacing.wide,
   },
 });
 

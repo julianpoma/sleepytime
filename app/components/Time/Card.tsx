@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   time: {
     color: tw.color.light.primary700,
     fontSize: tw.text.xl4,
-    marginBottom: tw.margin.m1,
+    marginBottom: tw.margin.none,
   },
 });
 

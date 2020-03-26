@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   title: {
     color: tw.color.light.gray900,
     fontSize: tw.text.lg,
+    letterSpacing: tw.letterSpacing.wide,
     textAlign: 'center',
   },
   titleContainer: {

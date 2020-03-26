@@ -44,6 +44,17 @@ const Main: React.FC<IProps> = ({ navigation }) => {
           onPress={() => navigation.navigate('PowerNap')}
         />
       </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          width: '70%',
+          justifyContent: 'space-between',
+          marginTop: tw.margin.m6,
+        }}
+      >
+        <Button.Secondary label="How it works?" onPress={() => {}} />
+        <Button.Secondary label="S" onPress={() => {}} />
+      </View>
     </Container>
   );
 };
@@ -59,6 +70,7 @@ const styles = StyleSheet.create({
   title: {
     color: tw.color.light.gray900,
     fontSize: tw.text.xl,
+    letterSpacing: tw.letterSpacing.wide,
     marginBottom: tw.margin.m4,
   },
 });
