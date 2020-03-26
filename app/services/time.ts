@@ -40,6 +40,3 @@ export const toBedRightNow = (): Time[] => {
     };
   });
 };
-
-export const formatTime = (date: Date): string =>
-  DateTime.fromJSDate(date).toFormat(HOUR_12_FORMAT);

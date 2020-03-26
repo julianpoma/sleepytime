@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import { Container, Time, Button } from '../../components';
-import { tw } from '../../utils';
+import { Button, Container, Time } from '../../components';
+import { HOUR_12_FORMAT, tw } from '../../utils';
 import { RootStackParamList } from '../../types';
+import { DateTime } from 'luxon';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { StyleSheet, View, Text } from 'react-native';
-import { formatTime } from '../../services/time';
+import { StyleSheet, Text, View } from 'react-native';
 
 interface IProps {
   navigation: StackNavigationProp<RootStackParamList, 'FallAsleepPicker'>;
 }
 
-const FallAsleepPicker: React.FC<IProps> = () => {
-  const [time, setTime] = useState('07:30 AM');
+const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
+  const [time, setTime] = useState(
+    DateTime.local().set({ hour: 7, minute: 30 }),
+  );
 
-  const onChange = (date: Date) => setTime(formatTime(date));
+  const onChange = (date: Date) => {
+    setTime(DateTime.fromJSDate(date));
+  };
 
   return (
     <Container>
@@ -21,11 +25,14 @@ const FallAsleepPicker: React.FC<IProps> = () => {
         <Text style={styles.title}>I would like to fall asleep at:</Text>
       </View>
 
-      <Time.Picker time={time} onTimeSelected={onChange} />
+      <Time.Picker
+        time={time.toFormat(HOUR_12_FORMAT)}
+        onTimeSelected={onChange}
+      />
 
       <Button.Primary
         margin={styles.button}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('FallAsleepScreen', { time })}
         label="Calculate"
       />
     </Container>
