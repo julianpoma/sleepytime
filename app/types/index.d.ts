@@ -1,6 +1,8 @@
 import { DateTime } from 'luxon';
 
 type RootStackParamList = {
+  Configurations: undefined;
+  Info: undefined;
   Home: undefined;
   SleepNow: undefined;
   PowerNap: undefined;

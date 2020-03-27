@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Container, Time } from '../../components';
 import { HOUR_12_FORMAT, tw } from '../../utils';
 import { RootStackParamList } from '../../types';
 import { DateTime } from 'luxon';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 interface IProps {
   navigation: StackNavigationProp<RootStackParamList, 'WakeUpPicker'>;
 }
 
 const WakeUpPicker: React.FC<IProps> = ({ navigation }) => {
+  const { theme } = useContext(ThemeContext);
+
   const [time, setTime] = useState(
     DateTime.local().set({ hour: 7, minute: 30 }),
   );
@@ -22,7 +25,9 @@ const WakeUpPicker: React.FC<IProps> = ({ navigation }) => {
   return (
     <Container>
       <View style={styles.header}>
-        <Text style={styles.title}>I would like to fall asleep at:</Text>
+        <Text style={[styles.title, colorTheme[theme].title]}>
+          I would like to fall asleep at:
+        </Text>
       </View>
 
       <Time.Picker
@@ -40,6 +45,19 @@ const WakeUpPicker: React.FC<IProps> = ({ navigation }) => {
       />
     </Container>
   );
+};
+
+const colorTheme = {
+  dark: {
+    title: {
+      color: tw.color.light.primary100,
+    },
+  },
+  light: {
+    title: {
+      color: tw.color.light.gray900,
+    },
+  },
 };
 
 const styles = StyleSheet.create({

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container } from '../../components';
 import { RootStackParamList } from '../../types';
 import { tw } from '../../utils';
 import { AntDesign, Feather } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 interface IProps {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
 }
 
 const Main: React.FC<IProps> = ({ navigation }) => {
+  const { theme } = useContext(ThemeContext);
+
   const chevron = (
     <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
   );
@@ -29,7 +32,9 @@ const Main: React.FC<IProps> = ({ navigation }) => {
 
   return (
     <Container>
-      <Text style={styles.title}>I would like to...</Text>
+      <Text style={[styles.title, colorTheme[theme].title]}>
+        I would like to...
+      </Text>
       <View style={styles.screens}>
         <Button.Primary
           margin={styles.button}
@@ -57,11 +62,30 @@ const Main: React.FC<IProps> = ({ navigation }) => {
         />
       </View>
       <View style={styles.options}>
-        <Button.Secondary icon={info} onPress={() => {}} />
-        <Button.Secondary icon={settingsGear} onPress={() => {}} />
+        <Button.Secondary
+          icon={info}
+          onPress={() => navigation.navigate('Info')}
+        />
+        <Button.Secondary
+          icon={settingsGear}
+          onPress={() => navigation.navigate('Configurations')}
+        />
       </View>
     </Container>
   );
+};
+
+const colorTheme = {
+  dark: {
+    title: {
+      color: tw.color.light.primary100,
+    },
+  },
+  light: {
+    title: {
+      color: tw.color.light.gray900,
+    },
+  },
 };
 
 const styles = StyleSheet.create({
@@ -79,7 +103,6 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   title: {
-    color: tw.color.light.gray900,
     fontSize: tw.text.xl,
     letterSpacing: tw.letterSpacing.wide,
     marginBottom: tw.margin.m4,

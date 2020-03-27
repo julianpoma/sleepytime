@@ -1,9 +1,10 @@
 import Card from './Card';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Time } from '../../types';
 import { tw } from '../../utils';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Button from '../Button/index';
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 interface IProps {
   title: string | JSX.Element;
@@ -20,6 +21,8 @@ const List: React.FC<IProps> = ({
   reverse,
   onButtonPress,
 }) => {
+  const { theme } = useContext(ThemeContext);
+
   const cards = times.map((t, i) => {
     return (
       <Card
@@ -34,10 +37,10 @@ const List: React.FC<IProps> = ({
   });
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={[styles.safeArea, colorTheme[theme].safeArea]}>
       <ScrollView style={styles.scroll}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, colorTheme[theme].title]}>{title}</Text>
         </View>
         {reverse ? cards.reverse() : cards}
         <View style={styles.button}>
@@ -48,6 +51,17 @@ const List: React.FC<IProps> = ({
   );
 };
 
+const colorTheme = {
+  dark: {
+    safeArea: { backgroundColor: tw.color.light.gray900 },
+    title: { color: tw.color.light.primary100 },
+  },
+  light: {
+    safeArea: { backgroundColor: tw.color.light.gray100 },
+    title: { color: tw.color.light.gray900 },
+  },
+};
+
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
@@ -56,13 +70,11 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     alignItems: 'center',
-    backgroundColor: tw.color.light.gray100,
     flex: 1,
     paddingTop: tw.padding.none,
   },
   scroll: { paddingHorizontal: tw.padding.p8 },
   title: {
-    color: tw.color.light.gray900,
     fontSize: tw.text.lg,
     letterSpacing: tw.letterSpacing.wide,
     textAlign: 'center',

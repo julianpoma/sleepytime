@@ -1,9 +1,15 @@
-import React from 'react';
+import ConfigurationScreen from '../screens/Configuration/ConfigurationScreen';
+import InfoScreen from '../screens/Configuration/InfoScreen';
+import React, { useContext } from 'react';
 import WakeUpPicker from '../screens/WakeUp/WakeUpPicker';
 import WakeUpScreen from '../screens/WakeUp/WakeUpScreen';
+import { IOS } from '../utils';
 import { RootStackParamList } from '../types';
+import { ThemeContext } from '../providers/ThemeProvider';
 import { createStackNavigator } from '@react-navigation/stack';
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'react-native';
 import {
   MainScreen,
   PowerNapScreen,
@@ -51,11 +57,35 @@ const StackNavigator = () => (
       component={WakeUpScreen}
       options={{ title: 'Fall asleep' }}
     />
+    <Stack.Screen
+      name="Configurations"
+      component={ConfigurationScreen}
+      options={{ title: 'Configuration' }}
+    />
+    <Stack.Screen
+      name="Info"
+      component={InfoScreen}
+      options={{ title: 'Info' }}
+    />
   </Stack.Navigator>
 );
 
-export default () => (
-  <NavigationContainer>
-    <StackNavigator />
-  </NavigationContainer>
-);
+export default () => {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <>
+      <StatusBar
+        barStyle={
+          theme === 'light'
+            ? IOS
+              ? 'dark-content'
+              : 'default'
+            : 'light-content'
+        }
+      />
+      <NavigationContainer theme={theme === 'light' ? DefaultTheme : DarkTheme}>
+        <StackNavigator />
+      </NavigationContainer>
+    </>
+  );
+};

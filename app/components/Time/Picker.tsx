@@ -1,7 +1,8 @@
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { tw } from '../../utils';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 interface IProps {
   onTimeSelected: Function;
@@ -14,6 +15,8 @@ const TimeScreen: React.FC<IProps> = ({
   onTimeSelected,
   time,
 }) => {
+  const { theme } = useContext(ThemeContext);
+
   const [showPicker, setShowPicker] = useState(false);
 
   const onPickerConfirm = date => {
@@ -27,10 +30,12 @@ const TimeScreen: React.FC<IProps> = ({
     <>
       <TouchableOpacity
         activeOpacity={0.7}
-        style={styles.timeBox}
+        style={[styles.timeBox, colorTheme[theme].timeBox]}
         onPress={() => setShowPicker(true)}
       >
-        <Text style={styles.timeText}>{time}</Text>
+        <Text style={[styles.timeText, colorTheme[theme].timeText]}>
+          {time}
+        </Text>
       </TouchableOpacity>
 
       <DateTimePickerModal
@@ -47,17 +52,25 @@ const TimeScreen: React.FC<IProps> = ({
   );
 };
 
+const colorTheme = {
+  dark: {
+    timeBox: { borderBottomColor: tw.color.light.gray700 },
+    timeText: { color: tw.color.light.primary300 },
+  },
+  light: {
+    timeBox: { borderBottomColor: tw.color.light.gray300 },
+    timeText: { color: tw.color.light.primary700 },
+  },
+};
+
 const styles = StyleSheet.create({
   timeBox: {
-    borderBottomColor: tw.color.light.gray300,
     borderBottomWidth: tw.borderWidth.border2,
     paddingVertical: tw.padding.p1,
     shadowRadius: 10,
   },
   timeText: {
-    color: tw.color.light.primary700,
     fontSize: tw.text.xl5,
-    // fontWeight: IOS ? '600' : 'bold',
   },
 });
 

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { tw } from '../../utils';
 import { StyleSheet, Text, View } from 'react-native';
 import Badge from './Badge';
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 interface IProps {
   isLast: boolean;
@@ -18,18 +19,73 @@ const TimeCard: React.FC<IProps> = ({
   sleepTime,
   isLast,
 }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <View style={[styles.card, isLast ? styles.last : null]}>
+    <View
+      style={[
+        styles.card,
+        colorTheme[theme].card,
+        isLast ? colorTheme[theme].last : null,
+      ]}
+    >
       <View style={styles.cardLeft}>
-        <Text style={styles.time}>{time.toUpperCase()}</Text>
+        <Text style={[styles.time, colorTheme[theme].time]}>
+          {time.toUpperCase()}
+        </Text>
         {recommended ? <Badge text="best" style={styles.badge} /> : null}
       </View>
       <View style={styles.cardRight}>
-        <Text style={styles.sleepTime}>{sleepTime} hours</Text>
-        <Text style={styles.sleepCycles}>{sleepCycles} sleep cycles</Text>
+        <Text style={[styles.sleepTime, colorTheme[theme].sleepTime]}>
+          {sleepTime} hours
+        </Text>
+        <Text style={[styles.sleepCycles, colorTheme[theme].sleepCycles]}>
+          {sleepCycles} sleep cycles
+        </Text>
       </View>
     </View>
   );
+};
+
+const colorTheme = {
+  dark: {
+    card: {
+      backgroundColor: tw.color.light.gray900,
+      borderTopColor: tw.color.light.gray700,
+    },
+    last: {
+      borderBottomColor: tw.color.light.gray700,
+      borderBottomWidth: tw.borderWidth.border2,
+    },
+    sleepCycles: {
+      color: tw.color.light.gray500,
+    },
+    sleepTime: {
+      color: tw.color.light.gray500,
+    },
+    time: {
+      color: tw.color.light.primary300,
+    },
+  },
+  light: {
+    card: {
+      backgroundColor: tw.color.light.gray100,
+      borderTopColor: tw.color.light.gray300,
+    },
+    last: {
+      borderBottomColor: tw.color.light.gray300,
+      borderBottomWidth: tw.borderWidth.border2,
+    },
+    sleepCycles: {
+      color: tw.color.light.gray600,
+    },
+    sleepTime: {
+      color: tw.color.light.gray600,
+    },
+    time: {
+      color: tw.color.light.primary700,
+    },
+  },
 };
 
 const styles = StyleSheet.create({
@@ -38,8 +94,6 @@ const styles = StyleSheet.create({
   },
   card: {
     alignItems: 'center',
-    backgroundColor: tw.color.light.gray100,
-    borderTopColor: tw.color.light.gray300,
     borderTopWidth: tw.borderWidth.border2,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -52,24 +106,14 @@ const styles = StyleSheet.create({
   cardRight: {
     alignItems: 'flex-end',
   },
-  highlight: {
-    borderColor: tw.color.light.primary400,
-  },
-  last: {
-    borderBottomColor: tw.color.light.gray300,
-    borderBottomWidth: tw.borderWidth.border2,
-  },
   sleepCycles: {
-    color: tw.color.light.gray600,
     fontSize: tw.text.sm,
   },
   sleepTime: {
-    color: tw.color.light.gray600,
     fontSize: tw.text.sm,
     marginBottom: tw.margin.m1,
   },
   time: {
-    color: tw.color.light.primary700,
     fontSize: tw.text.xl4,
     marginBottom: tw.margin.none,
   },
