@@ -13,13 +13,21 @@ const App: React.FC<{}> = () => {
 
   // We pass the [] so the useEffect is only executed on the first rendering
   useEffect(() => {
-    AsyncStorage.getItem('theme').then(value => {
-      return setThemeState({
-        ...themeState,
-        hasThemeMounted: true,
-        theme: value,
-      });
-    });
+    AsyncStorage.getItem('theme')
+      .then(value =>
+        setThemeState({
+          ...themeState,
+          hasThemeMounted: true,
+          theme: value || 'light', // If this is the local storage is empty, we default to light
+        }),
+      )
+      .catch(() =>
+        setThemeState({
+          ...themeState,
+          hasThemeMounted: true,
+          theme: 'light',
+        }),
+      );
   }, []);
 
   // Avoid rendering the app until the theme has been mounted
@@ -29,7 +37,7 @@ const App: React.FC<{}> = () => {
 
   const toggle = () => {
     const theme = themeState.theme === 'light' ? 'dark' : 'light';
-    AsyncStorage.setItem('theme', theme);
+    AsyncStorage.setItem('theme', theme).catch();
     setThemeState({ ...themeState, theme: theme });
   };
 

@@ -19,9 +19,7 @@ function ThemeTogglerButton() {
                 true: tw.color.light.gray800,
               }}
             />
-            <Text style={[styles.text, colorTheme[theme].text]}>
-              Dark theme
-            </Text>
+            <Text style={[styles.text, colorTheme[theme].text]}>Dark mode</Text>
           </>
         );
       }}
