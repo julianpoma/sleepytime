@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Blank Template (TypeScript)",
-    "slug": "sleepytime",
+    "name": "Sleepytime App",
+    "slug": "sleepytime-app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
+      // "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,7 +24,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      // "supportsTablet": true
+      "supportsTablet": false
     }
   }
 }
