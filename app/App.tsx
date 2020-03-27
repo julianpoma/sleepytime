@@ -1,41 +1,50 @@
-import React, { Component } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react';
 import { Error } from './components';
 import Navigator from './navigator';
 import { ThemeContext } from './providers/ThemeProvider';
+import { AsyncStorage } from 'react-native';
 
-interface IState {
-  theme: string;
-  toggleTheme: Function;
-}
+const App: React.FC<{}> = () => {
+  const [themeState, setThemeState] = useState({
+    hasThemeMounted: false,
+    theme: 'light',
+  });
 
-class App extends Component<{}, IState> {
-  public toggle: Function;
-  public state: any;
+  // We pass the [] so the useEffect is only executed on the first rendering
+  useEffect(() => {
+    AsyncStorage.getItem('theme').then(value => {
+      return setThemeState({
+        ...themeState,
+        hasThemeMounted: true,
+        theme: value,
+      });
+    });
+  }, []);
 
-  constructor(props) {
-    super(props);
-
-    this.toggle = () => {
-      this.setState(state => ({
-        theme: state.theme === 'dark' ? 'light' : 'dark',
-      }));
-    };
-
-    this.state = {
-      theme: 'light',
-      toggleTheme: this.toggle,
-    };
+  // Avoid rendering the app until the theme has been mounted
+  if (!themeState.hasThemeMounted) {
+    return null;
   }
 
-  render() {
-    return (
-      <Error.Boundary>
-        <ThemeContext.Provider value={this.state}>
-          <Navigator />
-        </ThemeContext.Provider>
-      </Error.Boundary>
-    );
-  }
-}
+  const toggle = () => {
+    const theme = themeState.theme === 'light' ? 'dark' : 'light';
+    AsyncStorage.setItem('theme', theme);
+    setThemeState({ ...themeState, theme: theme });
+  };
+
+  const computedContext = {
+    theme: themeState.theme,
+    toggleTheme: toggle,
+  };
+
+  return (
+    <Error.Boundary>
+      <ThemeContext.Provider value={computedContext}>
+        <Navigator />
+      </ThemeContext.Provider>
+    </Error.Boundary>
+  );
+};
 
 export default App;
