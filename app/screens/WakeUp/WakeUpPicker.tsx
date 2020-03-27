@@ -26,6 +26,7 @@ const WakeUpPicker: React.FC<IProps> = ({ navigation }) => {
       </View>
 
       <Time.Picker
+        initialDate={time.toJSDate()}
         time={time.toFormat(HOUR_12_FORMAT)}
         onTimeSelected={onChange}
       />

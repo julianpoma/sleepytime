@@ -11,7 +11,7 @@ interface IProps {
 
 const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
   const title =
-    "You only need 20 minutes to feel truly rested! And don't forget a bit of sun exposure.\n\nWake up at:";
+    "You only need 20 minutes to feel truly rested... and don't forget a bit of sun exposure!";
 
   const times = powerNap();
 

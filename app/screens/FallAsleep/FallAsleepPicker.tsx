@@ -12,7 +12,7 @@ interface IProps {
 
 const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
   const [time, setTime] = useState(
-    DateTime.local().set({ hour: 7, minute: 30 }),
+    DateTime.local().set({ hour: 23, minute: 45 }),
   );
 
   const onChange = (date: Date) => {
@@ -26,6 +26,7 @@ const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
       </View>
 
       <Time.Picker
+        initialDate={time.toJSDate()}
         time={time.toFormat(HOUR_12_FORMAT)}
         onTimeSelected={onChange}
       />

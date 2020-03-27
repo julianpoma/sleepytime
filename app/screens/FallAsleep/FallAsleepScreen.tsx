@@ -6,6 +6,7 @@ import { Time } from '../../components';
 import { DateTime } from 'luxon';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { StyleSheet, Text } from 'react-native';
 
 interface IProps {
   navigation: StackNavigationProp<RootStackParamList, 'FallAsleepScreen'>;
@@ -13,8 +14,12 @@ interface IProps {
 }
 
 const FallAsleepScreen: React.FC<IProps> = ({ navigation, route }) => {
-  const title =
-    "A good night's sleep consists of 5-6 complete sleep cycles. You should try to wake up at one of the following times:";
+  const title = (
+    <>
+      A good night's sleep consists of 5-6 complete sleep cycles. You should try
+      to <Text style={style.bold}>wake up</Text> at one of the following times:
+    </>
+  );
 
   const times = fallAsleepAt(DateTime.fromMillis(route.params.time));
 
@@ -27,5 +32,7 @@ const FallAsleepScreen: React.FC<IProps> = ({ navigation, route }) => {
     />
   );
 };
+
+const style = StyleSheet.create({ bold: { fontWeight: 'bold' } });
 
 export default FallAsleepScreen;

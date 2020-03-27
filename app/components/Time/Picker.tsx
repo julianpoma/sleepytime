@@ -6,9 +6,14 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 interface IProps {
   onTimeSelected: Function;
   time: string;
+  initialDate?: Date;
 }
 
-const TimeScreen: React.FC<IProps> = ({ onTimeSelected, time }) => {
+const TimeScreen: React.FC<IProps> = ({
+  initialDate,
+  onTimeSelected,
+  time,
+}) => {
   const [showPicker, setShowPicker] = useState(false);
 
   const onPickerConfirm = date => {
@@ -29,6 +34,7 @@ const TimeScreen: React.FC<IProps> = ({ onTimeSelected, time }) => {
       </TouchableOpacity>
 
       <DateTimePickerModal
+        date={initialDate || new Date()}
         headerTextIOS="Pick a time"
         is24Hour={false}
         isVisible={showPicker}
