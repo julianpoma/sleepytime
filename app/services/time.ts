@@ -55,3 +55,19 @@ export const fallAsleepAt = (time: DateTime): Time[] => {
     };
   });
 };
+
+export const WakeUpAt = (time: DateTime): Time[] => {
+  const cycles = 7;
+  const duration = 90;
+
+  return [...Array(cycles).keys()].map(i => {
+    const sleepCycles = i + 1;
+
+    return {
+      recommended: recommended(sleepCycles),
+      sleepCycles,
+      sleepTime: sleepTimeStr(sleepCycles * duration),
+      time: time.minus({ minutes: sleepCycles * duration }),
+    };
+  });
+};

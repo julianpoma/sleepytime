@@ -5,7 +5,7 @@ import { tw } from '../../utils';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 interface IProps {
-  title: string;
+  title: string | JSX.Element;
   timeFormat: string;
   times: Time[];
 }

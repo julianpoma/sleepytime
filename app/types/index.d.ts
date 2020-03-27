@@ -6,6 +6,8 @@ type RootStackParamList = {
   PowerNap: undefined;
   FallAsleepPicker: undefined;
   FallAsleepScreen: { time: number };
+  WakeUpPicker: undefined;
+  WakeUpScreen: { time: number };
 };
 
 type Time = {

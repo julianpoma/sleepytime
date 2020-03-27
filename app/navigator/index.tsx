@@ -1,4 +1,6 @@
 import React from 'react';
+import WakeUpPicker from '../screens/WakeUp/WakeUpPicker';
+import WakeUpScreen from '../screens/WakeUp/WakeUpScreen';
 import { RootStackParamList } from '../types';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -37,6 +39,16 @@ const StackNavigator = () => (
     <Stack.Screen
       name="FallAsleepScreen"
       component={FallAsleepScreen}
+      options={{ title: 'Fall asleep' }}
+    />
+    <Stack.Screen
+      name="WakeUpPicker"
+      component={WakeUpPicker}
+      options={{ title: 'Pick a time' }}
+    />
+    <Stack.Screen
+      name="WakeUpScreen"
+      component={WakeUpScreen}
       options={{ title: 'Fall asleep' }}
     />
   </Stack.Navigator>
