@@ -4,11 +4,12 @@ import { Error } from './components';
 import Navigator from './navigator';
 import { ThemeContext } from './providers/ThemeProvider';
 import { AsyncStorage } from 'react-native';
+import { THEME } from './utils';
 
 const App: React.FC<{}> = () => {
   const [themeState, setThemeState] = useState({
     hasThemeMounted: false,
-    theme: 'light',
+    theme: THEME.LIGHT,
   });
 
   // We pass the [] so the useEffect is only executed on the first rendering
@@ -18,14 +19,14 @@ const App: React.FC<{}> = () => {
         setThemeState({
           ...themeState,
           hasThemeMounted: true,
-          theme: value || 'light', // If this is the local storage is empty, we default to light
+          theme: value || THEME.LIGHT, // If this is the local storage is empty, we default to light
         }),
       )
       .catch(() =>
         setThemeState({
           ...themeState,
           hasThemeMounted: true,
-          theme: 'light',
+          theme: THEME.LIGHT,
         }),
       );
   }, []);
@@ -36,7 +37,7 @@ const App: React.FC<{}> = () => {
   }
 
   const toggle = () => {
-    const theme = themeState.theme === 'light' ? 'dark' : 'light';
+    const theme = themeState.theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT;
     AsyncStorage.setItem('theme', theme).catch();
     setThemeState({ ...themeState, theme: theme });
   };

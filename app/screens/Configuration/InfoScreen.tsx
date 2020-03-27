@@ -52,7 +52,7 @@ const InfoScreen = () => {
             </Text>
             <Text style={[styles.infoText, colorTheme[theme].text]}>
               Power naps are the best weapon to recover energy when you feeling
-              with low energy in the afternoon.
+              tired in the afternoon. It only takes twenty minutes!
             </Text>
           </View>
         </View>

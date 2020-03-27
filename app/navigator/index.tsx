@@ -3,7 +3,7 @@ import InfoScreen from '../screens/Configuration/InfoScreen';
 import React, { useContext } from 'react';
 import WakeUpPicker from '../screens/WakeUp/WakeUpPicker';
 import WakeUpScreen from '../screens/WakeUp/WakeUpScreen';
-import { IOS } from '../utils';
+import { IOS, THEME } from '../utils';
 import { RootStackParamList } from '../types';
 import { ThemeContext } from '../providers/ThemeProvider';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -76,14 +76,16 @@ export default () => {
     <>
       <StatusBar
         barStyle={
-          theme === 'light'
+          theme === THEME.LIGHT
             ? IOS
               ? 'dark-content'
               : 'default'
             : 'light-content'
         }
       />
-      <NavigationContainer theme={theme === 'light' ? DefaultTheme : DarkTheme}>
+      <NavigationContainer
+        theme={theme === THEME.LIGHT ? DefaultTheme : DarkTheme}
+      >
         <StackNavigator />
       </NavigationContainer>
     </>

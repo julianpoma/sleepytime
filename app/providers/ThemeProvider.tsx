@@ -1,7 +1,8 @@
 import React from 'react';
+import { THEME } from '../utils';
 
 const defaultContextData = {
-  theme: 'light',
+  theme: THEME.LIGHT,
   toggleTheme: () => {},
 };
 
