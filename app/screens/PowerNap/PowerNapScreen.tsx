@@ -9,13 +9,20 @@ interface IProps {
   navigation: StackNavigationProp<RootStackParamList, 'PowerNap'>;
 }
 
-const PowerNapScreen: React.FC<IProps> = ({}) => {
+const PowerNapScreen: React.FC<IProps> = ({ navigation }) => {
   const title =
     "You only need 20 minutes to feel truly rested! And don't forget a bit of sun exposure.\n\nWake up at:";
 
   const times = powerNap();
 
-  return <Time.List title={title} times={times} timeFormat={HOUR_12_FORMAT} />;
+  return (
+    <Time.List
+      title={title}
+      times={times}
+      timeFormat={HOUR_12_FORMAT}
+      onButtonPress={() => navigation.goBack()}
+    />
+  );
 };
 
 export default PowerNapScreen;

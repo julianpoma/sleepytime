@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
   last: {
     borderBottomColor: tw.color.light.gray300,
     borderBottomWidth: tw.borderWidth.border2,
-    marginBottom: tw.margin.m2,
   },
   sleepCycles: {
     color: tw.color.light.gray600,

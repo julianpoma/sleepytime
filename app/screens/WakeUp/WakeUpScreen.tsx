@@ -13,17 +13,25 @@ interface IProps {
   route: RouteProp<RootStackParamList, 'WakeUpScreen'>;
 }
 
-const WakeUpScreen: React.FC<IProps> = ({ route }) => {
+const WakeUpScreen: React.FC<IProps> = ({ navigation, route }) => {
   const title = (
     <>
       You should try <Text style={styles.bold}>fall asleep</Text> at one of the
-      following times
+      following times:
     </>
   );
 
   const times = WakeUpAt(DateTime.fromMillis(route.params.time));
 
-  return <Time.List title={title} times={times} timeFormat={HOUR_12_FORMAT} />;
+  return (
+    <Time.List
+      title={title}
+      times={times}
+      timeFormat={HOUR_12_FORMAT}
+      reverse={true}
+      onButtonPress={() => navigation.navigate('Home')}
+    />
+  );
 };
 
 const styles = StyleSheet.create({

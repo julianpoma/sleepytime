@@ -3,14 +3,23 @@ import React from 'react';
 import { Time } from '../../types';
 import { tw } from '../../utils';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Button from '../Button/index';
 
 interface IProps {
   title: string | JSX.Element;
   timeFormat: string;
   times: Time[];
+  reverse?: boolean;
+  onButtonPress: React.EventHandler<any>;
 }
 
-const List: React.FC<IProps> = ({ title, times, timeFormat }) => {
+const List: React.FC<IProps> = ({
+  title,
+  times,
+  timeFormat,
+  reverse,
+  onButtonPress,
+}) => {
   const cards = times.map((t, i) => {
     return (
       <Card
@@ -19,7 +28,7 @@ const List: React.FC<IProps> = ({ title, times, timeFormat }) => {
         recommended={t.recommended}
         sleepCycles={t.sleepCycles}
         sleepTime={t.sleepTime}
-        isLast={times.length === i + 1}
+        isLast={reverse ? i + 1 === 1 : times.length === i + 1}
       />
     );
   });
@@ -30,13 +39,21 @@ const List: React.FC<IProps> = ({ title, times, timeFormat }) => {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
-        {cards}
+        {reverse ? cards.reverse() : cards}
+        <View style={styles.button}>
+          <Button.Primary text="Got it!" onPress={onButtonPress} />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: tw.margin.m4,
+  },
   safeArea: {
     alignItems: 'center',
     backgroundColor: tw.color.light.gray100,

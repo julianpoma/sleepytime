@@ -9,13 +9,20 @@ interface IProps {
   navigation: StackNavigationProp<RootStackParamList, 'SleepNow'>;
 }
 
-const SleepNowScreen: React.FC<IProps> = ({}) => {
+const SleepNowScreen: React.FC<IProps> = ({ navigation }) => {
   const title =
     'If you head to bed right now, you should try to wake up at one of the following times:';
 
   const times = toBedRightNow();
 
-  return <Time.List title={title} times={times} timeFormat={HOUR_12_FORMAT} />;
+  return (
+    <Time.List
+      title={title}
+      times={times}
+      timeFormat={HOUR_12_FORMAT}
+      onButtonPress={() => navigation.goBack()}
+    />
+  );
 };
 
 export default SleepNowScreen;
