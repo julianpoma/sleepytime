@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import { tw } from '../../utils';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Linking } from 'expo';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Button } from '../../components';
 
 const InfoScreen = () => {
   const { theme } = useContext(ThemeContext);
@@ -12,7 +13,7 @@ const InfoScreen = () => {
   return (
     <SafeAreaView style={[styles.safeArea, colorTheme[theme].safeArea]}>
       <ScrollView style={styles.scroll}>
-        <View style={styles.container}>
+        <View>
           <View style={styles.infoContainer}>
             <Text style={[styles.infoTitle, colorTheme[theme].text]}>
               Wake up at...
@@ -62,8 +63,8 @@ const InfoScreen = () => {
               Made with ❤️ by Neucoas
             </Text>
 
-            <Button
-              title="Source code"
+            <Button.Link
+              text="Source code"
               onPress={() => Linking.openURL('https://github.com/julianpoma/')}
             />
           </View>
@@ -72,8 +73,8 @@ const InfoScreen = () => {
             All credits for the idea goes to the original site.
           </Text>
 
-          <Button
-            title="sleepyti.me"
+          <Button.Link
+            text="sleepyti.me"
             onPress={() => Linking.openURL('https://sleepyti.me')}
           />
         </View>
@@ -94,9 +95,9 @@ const colorTheme = {
 };
 
 const styles = StyleSheet.create({
-  author: { marginBottom: tw.margin.m4 },
-  container: {
-    width: '90%',
+  author: {
+    alignItems: 'center',
+    marginBottom: tw.margin.m4,
   },
   creditContainer: {
     alignItems: 'center',
@@ -114,10 +115,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: tw.margin.m1,
   },
-  safeArea: { flex: 1, paddingTop: tw.padding.none },
+  safeArea: {
+    flex: 1,
+    paddingTop: tw.padding.none,
+  },
   scroll: {
     marginBottom: tw.margin.m4,
-    paddingHorizontal: tw.padding.p4,
+    paddingHorizontal: tw.padding.p6,
   },
   text: {
     fontSize: tw.text.xl,
