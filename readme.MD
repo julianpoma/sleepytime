@@ -1,4 +1,4 @@
-<h1 align="center">Sleepytime App</h1>
+<h1 align="center">😴 Sleepytime App</h1>
 <h3 align="center">Build a regular sleep schedule</h3>
 
 * some nice image here *
@@ -11,7 +11,7 @@ This app is a clone of the know site [sleepyti.me](https://sleepyti.me/). It is 
 
 > "A good night's sleep consists of 5-6 complete sleep cycles."
 
-> It takes the average human fourteen minutes to fall asleep.
+> "It takes the average human fourteen minutes to fall asleep."
 
 ## Features
 
@@ -23,4 +23,4 @@ This app is a clone of the know site [sleepyti.me](https://sleepyti.me/). It is 
 
 ## License
 
-MIT
+[MIT](https://github.com/julianpoma/sleepityme/blob/master/LICENSE)
