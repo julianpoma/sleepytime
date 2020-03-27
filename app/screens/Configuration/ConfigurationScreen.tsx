@@ -15,7 +15,7 @@ function ThemeTogglerButton() {
               value={theme === 'dark'}
               thumbColor={tw.color.light.primary}
               trackColor={{
-                false: tw.color.light.gray200,
+                false: tw.color.light.gray300,
                 true: tw.color.light.gray800,
               }}
             />
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: tw.text.xl,
-    marginLeft: tw.margin.m4,
+    marginLeft: tw.margin.m3,
   },
 });
 
