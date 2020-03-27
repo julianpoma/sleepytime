@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     marginBottom: tw.margin.m4,
   },
   title: {
-    color: tw.color.gray900,
     fontSize: tw.text.xl,
     letterSpacing: tw.letterSpacing.wide,
   },

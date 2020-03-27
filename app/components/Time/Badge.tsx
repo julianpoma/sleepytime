@@ -41,13 +41,11 @@ const colorTheme = {
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: tw.color.primary100,
     borderRadius: tw.borderRadius.full,
     paddingHorizontal: tw.padding.p2,
     paddingVertical: tw.padding.p1,
   },
   text: {
-    color: tw.color.primary600,
     fontSize: tw.text.xs,
     fontWeight: IOS ? '500' : 'bold',
     letterSpacing: tw.letterSpacing.wide,
