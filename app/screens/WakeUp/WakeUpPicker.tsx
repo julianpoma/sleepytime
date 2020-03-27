@@ -26,7 +26,7 @@ const WakeUpPicker: React.FC<IProps> = ({ navigation }) => {
     <Container>
       <View style={styles.header}>
         <Text style={[styles.title, colorTheme[theme].title]}>
-          I would like to fall asleep at:
+          I would like to wake up at:
         </Text>
       </View>
 
