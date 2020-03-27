@@ -15,19 +15,19 @@ const Main: React.FC<IProps> = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
 
   const chevron = (
-    <AntDesign name="right" size={tw.text.xl} color={tw.color.light.gray100} />
+    <AntDesign name="right" size={tw.text.xl} color={tw.color.gray100} />
   );
 
   const settingsGear = (
     <AntDesign
       name="setting"
       size={tw.text.xl}
-      color={tw.color.light.primary}
+      color={tw.color.primary}
     />
   );
 
   const info = (
-    <Feather name="info" size={tw.text.xl} color={tw.color.light.primary} />
+    <Feather name="info" size={tw.text.xl} color={tw.color.primary} />
   );
 
   return (
@@ -78,12 +78,12 @@ const Main: React.FC<IProps> = ({ navigation }) => {
 const colorTheme = {
   dark: {
     title: {
-      color: tw.color.light.primary100,
+      color: tw.color.primary100,
     },
   },
   light: {
     title: {
-      color: tw.color.light.gray900,
+      color: tw.color.gray900,
     },
   },
 };

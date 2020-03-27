@@ -32,10 +32,10 @@ const Secondary: React.FC<IProps> = ({ onPress, text, margin, icon }) => {
 
 const colorTheme = {
   dark: {
-    backgroundColor: tw.color.light.gray800,
+    backgroundColor: tw.color.gray800,
   },
   light: {
-    backgroundColor: tw.color.light.gray200,
+    backgroundColor: tw.color.gray200,
   },
 };
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     paddingVertical: tw.padding.p4,
   },
   text: {
-    color: tw.color.light.primary,
+    color: tw.color.primary,
     fontSize: tw.text.base,
     fontWeight: IOS ? '600' : 'bold',
     letterSpacing: tw.letterSpacing.wide,

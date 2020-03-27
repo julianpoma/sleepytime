@@ -50,12 +50,12 @@ const FallAsleepPicker: React.FC<IProps> = ({ navigation }) => {
 const colorTheme = {
   dark: {
     title: {
-      color: tw.color.light.primary100,
+      color: tw.color.primary100,
     },
   },
   light: {
     title: {
-      color: tw.color.light.gray900,
+      color: tw.color.gray900,
     },
   },
 };
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginBottom: tw.margin.m4,
   },
   title: {
-    color: tw.color.light.gray900,
+    color: tw.color.gray900,
     fontSize: tw.text.xl,
     letterSpacing: tw.letterSpacing.wide,
   },

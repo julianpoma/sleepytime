@@ -50,40 +50,40 @@ const TimeCard: React.FC<IProps> = ({
 const colorTheme = {
   dark: {
     card: {
-      backgroundColor: tw.color.light.gray900,
-      borderTopColor: tw.color.light.gray700,
+      backgroundColor: tw.color.gray900,
+      borderTopColor: tw.color.gray700,
     },
     last: {
-      borderBottomColor: tw.color.light.gray700,
+      borderBottomColor: tw.color.gray700,
       borderBottomWidth: tw.borderWidth.border2,
     },
     sleepCycles: {
-      color: tw.color.light.gray500,
+      color: tw.color.gray500,
     },
     sleepTime: {
-      color: tw.color.light.gray500,
+      color: tw.color.gray500,
     },
     time: {
-      color: tw.color.light.primary300,
+      color: tw.color.primary300,
     },
   },
   light: {
     card: {
-      backgroundColor: tw.color.light.gray100,
-      borderTopColor: tw.color.light.gray300,
+      backgroundColor: tw.color.gray100,
+      borderTopColor: tw.color.gray300,
     },
     last: {
-      borderBottomColor: tw.color.light.gray300,
+      borderBottomColor: tw.color.gray300,
       borderBottomWidth: tw.borderWidth.border2,
     },
     sleepCycles: {
-      color: tw.color.light.gray600,
+      color: tw.color.gray600,
     },
     sleepTime: {
-      color: tw.color.light.gray600,
+      color: tw.color.gray600,
     },
     time: {
-      color: tw.color.light.primary700,
+      color: tw.color.primary700,
     },
   },
 };
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: tw.padding.p4,
-    shadowColor: tw.color.light.gray900,
+    shadowColor: tw.color.gray900,
   },
   cardLeft: {
     alignItems: 'flex-start',

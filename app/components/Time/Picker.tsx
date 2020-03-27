@@ -54,12 +54,12 @@ const TimeScreen: React.FC<IProps> = ({
 
 const colorTheme = {
   dark: {
-    timeBox: { borderBottomColor: tw.color.light.gray700 },
-    timeText: { color: tw.color.light.primary300 },
+    timeBox: { borderBottomColor: tw.color.gray700 },
+    timeText: { color: tw.color.primary300 },
   },
   light: {
-    timeBox: { borderBottomColor: tw.color.light.gray300 },
-    timeText: { color: tw.color.light.primary700 },
+    timeBox: { borderBottomColor: tw.color.gray300 },
+    timeText: { color: tw.color.primary700 },
   },
 };
 

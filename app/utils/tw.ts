@@ -7,30 +7,24 @@
 
 const tw = {
   color: {
-    dark: {
-      backgrounColor: '#1A202C',
-      primary: '#667EEA',
-    },
-    light: {
-      gray100: '#F7FAFC',
-      gray200: '#EDF2F7',
-      gray300: '#E2E8F0',
-      gray400: '#CBD5E0',
-      gray500: '#A0AEC0',
-      gray600: '#718096',
-      gray700: '#4A5568',
-      gray800: '#2D3748',
-      gray900: '#1A202C',
-      primary100: '#EBF4FF',
-      primary200: '#C3DAFE',
-      primary300: '#A3BFFA',
-      primary400: '#7F9CF5',
-      primary: '#667EEA',
-      primary600: '#5A67D8',
-      primary700: '#4C51BF',
-      primary800: '#434190',
-      primary900: '#3C366B',
-    },
+    gray100: '#F7FAFC',
+    gray200: '#EDF2F7',
+    gray300: '#E2E8F0',
+    gray400: '#CBD5E0',
+    gray500: '#A0AEC0',
+    gray600: '#718096',
+    gray700: '#4A5568',
+    gray800: '#2D3748',
+    gray900: '#1A202C',
+    primary100: '#EBF4FF',
+    primary200: '#C3DAFE',
+    primary300: '#A3BFFA',
+    primary400: '#7F9CF5',
+    primary: '#667EEA',
+    primary600: '#5A67D8',
+    primary700: '#4C51BF',
+    primary800: '#434190',
+    primary900: '#3C366B',
   },
   borderRadius: {
     none: 0,
@@ -89,7 +83,7 @@ const tw = {
 const shadow = {
   defaultButtonShadow: {
     elevation: 2, // Android
-    shadowColor: tw.color.light.gray900,
+    shadowColor: tw.color.gray900,
     shadowOffset: {
       height: 1,
       width: 3,

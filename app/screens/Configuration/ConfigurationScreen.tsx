@@ -13,10 +13,10 @@ function ThemeTogglerButton() {
             <Switch
               onValueChange={toggleTheme}
               value={theme === 'dark'}
-              thumbColor={tw.color.light.primary}
+              thumbColor={tw.color.primary}
               trackColor={{
-                false: tw.color.light.gray300,
-                true: tw.color.light.gray800,
+                false: tw.color.gray300,
+                true: tw.color.gray800,
               }}
             />
             <Text style={[styles.text, colorTheme[theme].text]}>Dark mode</Text>
@@ -38,8 +38,8 @@ const ConfigurationScreen = () => {
 };
 
 const colorTheme = {
-  dark: { text: { color: tw.color.light.primary100 } },
-  light: { text: { color: tw.color.light.gray900 } },
+  dark: { text: { color: tw.color.primary100 } },
+  light: { text: { color: tw.color.gray900 } },
 };
 
 const styles = StyleSheet.create({

@@ -19,7 +19,7 @@ const Link: React.FC<IProps> = ({ onPress, text, style }) => {
 
 const styles = StyleSheet.create({
   text: {
-    color: tw.color.light.primary,
+    color: tw.color.primary,
     fontSize: tw.text.base,
   },
 });

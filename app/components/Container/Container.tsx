@@ -22,10 +22,10 @@ const Container: React.FC<React.PropsWithChildren<IProps>> = ({
 
 const colorTheme = {
   dark: {
-    backgroundColor: tw.color.light.gray900,
+    backgroundColor: tw.color.gray900,
   },
   light: {
-    backgroundColor: tw.color.light.gray100,
+    backgroundColor: tw.color.gray100,
   },
 };
 

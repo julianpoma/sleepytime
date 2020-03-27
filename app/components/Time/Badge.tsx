@@ -23,31 +23,31 @@ const Badge: React.FC<IProps> = ({ text, style }) => {
 const colorTheme = {
   dark: {
     badge: {
-      backgroundColor: tw.color.light.gray800,
+      backgroundColor: tw.color.gray800,
     },
     text: {
-      color: tw.color.light.primary300,
+      color: tw.color.primary300,
     },
   },
   light: {
     badge: {
-      backgroundColor: tw.color.light.primary100,
+      backgroundColor: tw.color.primary100,
     },
     text: {
-      color: tw.color.light.primary600,
+      color: tw.color.primary600,
     },
   },
 };
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: tw.color.light.primary100,
+    backgroundColor: tw.color.primary100,
     borderRadius: tw.borderRadius.full,
     paddingHorizontal: tw.padding.p2,
     paddingVertical: tw.padding.p1,
   },
   text: {
-    color: tw.color.light.primary600,
+    color: tw.color.primary600,
     fontSize: tw.text.xs,
     fontWeight: IOS ? '500' : 'bold',
     letterSpacing: tw.letterSpacing.wide,

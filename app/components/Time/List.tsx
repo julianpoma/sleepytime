@@ -53,12 +53,12 @@ const List: React.FC<IProps> = ({
 
 const colorTheme = {
   dark: {
-    safeArea: { backgroundColor: tw.color.light.gray900 },
-    title: { color: tw.color.light.primary100 },
+    safeArea: { backgroundColor: tw.color.gray900 },
+    title: { color: tw.color.primary100 },
   },
   light: {
-    safeArea: { backgroundColor: tw.color.light.gray100 },
-    title: { color: tw.color.light.gray900 },
+    safeArea: { backgroundColor: tw.color.gray100 },
+    title: { color: tw.color.gray900 },
   },
 };
 

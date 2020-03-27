@@ -85,12 +85,12 @@ const InfoScreen = () => {
 
 const colorTheme = {
   dark: {
-    safeArea: { backgroundColor: tw.color.light.gray900 },
-    text: { color: tw.color.light.primary100 },
+    safeArea: { backgroundColor: tw.color.gray900 },
+    text: { color: tw.color.primary100 },
   },
   light: {
-    safeArea: { backgroundColor: tw.color.light.gray100 },
-    text: { color: tw.color.light.gray900 },
+    safeArea: { backgroundColor: tw.color.gray100 },
+    text: { color: tw.color.gray900 },
   },
 };
 
