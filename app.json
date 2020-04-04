@@ -2,20 +2,21 @@
   "expo": {
     "name": "Sleepytime App",
     "slug": "sleepytime-app",
-    "privacy": "public",
+    "description": "Build a regular sleep schedule",
+    "owner": "neucoas",
+    "privacy": "unlisted",
     "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android"
-      // "web"
     ],
-    "version": "1.0.0",
+    "version": "0.0.9",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#667EEA"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,8 +25,13 @@
       "**/*"
     ],
     "ios": {
-      // "supportsTablet": true
+      "bundleIdentifier": "com.neucoas.sleepytime",
+      "buildNumber": "0.0.9",
       "supportsTablet": false
+    },
+    "android": {
+      "package": "com.neucoas.sleepytime",
+      "versionCode": 0
     }
   }
 }
